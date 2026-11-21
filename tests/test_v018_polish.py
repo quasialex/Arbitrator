@@ -53,3 +53,15 @@ def test_readme_is_public_facing_and_installs_on_port_8001():
     assert 'python -m scripts.create_admin' in readme
     assert 'docs/ARCHITECTURE.md' in readme
     assert 'CAPSTONE_STATUS' not in readme
+
+
+def test_create_work_item_form_is_centered_without_changing_its_action():
+    page = (ROOT / 'app/templates/work_item_new.html').read_text()
+    document = BeautifulSoup(page, 'html.parser')
+    wrapper = document.select_one('.work-item-new-editor')
+    assert wrapper is not None
+    assert wrapper.select_one('.heading h1').get_text(strip=True) == 'New work item'
+    assert wrapper.select_one('form[action="/work-items/create"]') is not None
+    assert wrapper.select_one('.panel.form-narrow') is not None
+    css = (ROOT / 'app/static/site.css').read_text()
+    assert '.work-item-new-editor {max-width:660px;margin-inline:auto;}' in css
