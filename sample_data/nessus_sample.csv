@@ -1,0 +1,3 @@
+Host,Plugin ID,Name,Risk,Plugin Output,Solution,CVE,Port,Protocol
+192.0.2.20,10010,Example SSH algorithm finding,High,Synthetic SSH algorithm negotiation evidence,Disable deprecated algorithms,,22,tcp
+192.0.2.21,10020,Example HTTP server finding,Medium,Synthetic HTTP response evidence,Update test configuration,,80,tcp

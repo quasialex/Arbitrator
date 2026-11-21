@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block breadcrumb %}<a href="/ownership/teams">REMEDIATION TEAMS</a><span class="breadcrumb-divider">/</span>EDIT TEAM{% endblock %}
+{% block content %}
+<div class="centered-editor">
+<div class="heading"><div><div class="eyebrow">GLOBAL TEAM</div><h1>Edit {{team.name}}</h1></div><a class="button" href="/ownership/teams">Back to directory</a></div>{% if error %}<div class="alert error">{{error}}</div>{% endif %}<section class="panel"><form method="post" action="/ownership/teams/{{team.id}}" class="upload-form"><input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}"><label>Name</label><input name="name" maxlength="160" value="{{team.name}}" required><label>Email</label><input type="email" name="email" value="{{team.email or ''}}" required><button class="button primary">Save team</button></form></section></div>
+{% endblock %}

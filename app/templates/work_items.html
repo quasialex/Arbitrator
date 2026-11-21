@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% from '_sort.html' import sortable %}{% block breadcrumb %}<a href="/governance">GOVERNANCE</a><span class="breadcrumb-divider">/</span>WORK ITEMS{% endblock %}
+{% block content %}
+<div class="heading"><div><div class="eyebrow">YOUR WORKSPACE</div><h1>Governance work items</h1><p>Review tasks, approvals and deadlines.</p></div>{% if can('governance.tasks.create') %}<a class="button primary" href="/work-items/new">+ New work item</a>{% endif %}</div>
+{% if error %}<div class="alert error">{{error}}</div>{% endif %}{% if notice %}<div class="alert success">{{notice}}</div>{% endif %}
+<div class="metric-grid three">
+  <a href="/work-items?bucket=mine" class="metric metric-link"><div class="metric-label">ASSIGNED TO YOU</div><div class="metric-value">{{counts.mine}}</div></a>
+  <a href="/work-items?bucket=pending" class="metric metric-link"><div class="metric-label">OPEN ITEMS</div><div class="metric-value">{{counts.pending}}</div></a>
+  <a href="/work-items?bucket=overdue" class="metric metric-link"><div class="metric-label">OVERDUE</div><div class="metric-value">{{counts.overdue}}</div></a>
+</div>
+<div class="tab-links">{% for key,label in [('mine','Assigned to me'),('pending','Open'),('approvals','Awaiting approval'),('overdue','Overdue'),('history','Completed history'),('all','All')] %}<a href="/work-items?bucket={{key}}" class="{% if bucket==key %}chosen{% endif %}">{{label}}</a>{% endfor %}</div>
+<section class="panel data-panel"><div class="panel-top"><div><h2>Work queue</h2><p>{{paging.total}} items</p></div></div>
+<table><thead><tr><th>{{sortable('ITEM','title',sorting,link)}}</th><th>FINDING</th><th>{{sortable('TYPE','type',sorting,link)}}</th><th>ASSIGNED TO</th><th>{{sortable('DUE','due',sorting,link)}}</th><th>{{sortable('STATUS','status',sorting,link)}}</th><th></th></tr></thead><tbody>
+{% for item in items %}<tr><td><a href="/work-items/{{item.id}}" class="table-primary">{{item.title}}</a><span class="muted-line">#{{item.id}}</span></td><td><a href="/findings/{{item.finding_id}}" class="text-link">{{item.finding.vulnerability.title}}</a></td><td>{{kinds.get(item.kind,item.kind)}}</td><td>{{item.assignee_user.name if item.assignee_user else item.assignee_role.name if item.assignee_role else 'Unassigned'}}</td><td><span class="{% if item.status in ['pending','in_progress'] and item.due_at.date() < today %}needs-owner{% endif %}">{{item.due_at.strftime('%Y-%m-%d')}}</span></td><td><span class="state-tag">{{item.status|replace('_',' ')|title}}</span></td><td><a href="/work-items/{{item.id}}" class="text-link">Open →</a></td></tr>
+{% else %}<tr><td colspan="7" class="empty-cell">No matching work items.</td></tr>{% endfor %}</tbody></table>{% include '_pager.html' %}</section>
+<section class="panel below-register"><div class="panel-top"><h2>My previous decisions</h2></div>
+<div class="directory-list">{% for d in previous_decisions %}<div class="decision-summary"><a href="/findings/{{d.finding_id}}" class="text-link">Finding #{{d.finding_id}}</a><strong>{{d.action|replace('_',' ')|title}}</strong><span>{{d.created_at.strftime('%Y-%m-%d')}} · {{d.rationale[:110]}}{% if d.rationale|length>110 %}…{% endif %}</span></div>{% else %}<p class="helper">No decisions recorded.</p>{% endfor %}</div>
+</section>
+{% endblock %}

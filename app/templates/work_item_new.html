@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% block breadcrumb %}<a href="/governance">GOVERNANCE</a><span class="breadcrumb-divider">/</span><a href="/work-items">WORK ITEMS</a><span class="breadcrumb-divider">/</span>NEW{% endblock %}
+{% block content %}<div class="heading"><div><div class="eyebrow">ASSIGNMENT</div><h1>New work item</h1></div></div>
+{% if error %}<div class="alert error">{{error}}</div>{% endif %}
+<section class="panel form-narrow"><form class="upload-form" method="post" action="/work-items/create"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+<label>Finding</label><select name="finding_id" required><option value="">Select finding</option>{% for f in findings %}<option value="{{f.id}}" {% if f.id==finding_id %}selected{% endif %}>#{{f.id}} — {{f.vulnerability.title}}</option>{% endfor %}</select>
+<label>Task type</label><select name="kind" required>{% for key,label in kinds.items() %}<option value="{{key}}">{{label}}</option>{% endfor %}</select>
+<label>Title</label><input name="title" required minlength="4" maxlength="240" placeholder="Review remediation plan">
+<label>Details</label><textarea name="description" rows="4" maxlength="5000" placeholder="Context and expected outcome"></textarea>
+<label>Assign to user or access role</label><select name="assignee" required><option value="">Select assignee</option><optgroup label="Users">{% for u in users %}<option value="user:{{u.id}}">{{u.name}} ({{u.username}})</option>{% endfor %}</optgroup><optgroup label="Roles">{% for role in roles %}<option value="role:{{role.id}}">{{role.name}} (role queue)</option>{% endfor %}</optgroup></select>
+<label>Due date</label><input name="due_date" type="date" required><button class="button primary">Create work item</button>
+</form></section>{% endblock %}

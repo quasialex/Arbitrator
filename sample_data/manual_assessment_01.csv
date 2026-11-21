@@ -1,0 +1,4 @@
+Asset,Title,Severity,Plugin ID,Description,Remediation,Owner,Evidence,CVE,Port,Protocol
+web01.example.test,Outdated web framework,High,PT-1001,Unsupported version identified during authorized testing,Upgrade to supported version,Web Platform Team,HTTP response header reveals test version,,443,tcp
+api01.example.test,Missing authorization check,Critical,PT-1002,Test endpoint accepted unauthorized access in controlled environment,Enforce server side authorization,API Engineering Team,Synthetic request received 200 for unauthorized test identity,,443,tcp
+web01.example.test,Weak TLS configuration,Medium,PT-1003,Test service supports weak cipher configuration,Disable deprecated cipher suites,Web Platform Team,Synthetic handshake accepted test cipher,,443,tcp

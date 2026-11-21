@@ -1,0 +1,15 @@
+{# Reusable register navigation. Preserves filters on page-size changes. #}
+{% if paging %}<div class="register-footer">
+  <form method="get" action="{{ request.url.path }}" class="page-size-form">
+    {% for key,val in request.query_params.multi_items() %}{% if key not in ['page_num','page_size'] %}<input type="hidden" name="{{ key }}" value="{{ val }}">{% endif %}{% endfor %}
+    <label for="page-size-{{ active }}">Rows per page</label>
+    <select id="page-size-{{ active }}" name="page_size" onchange="this.form.submit()">
+      {% for n in [10,20,50,100] %}<option value="{{ n }}" {% if paging.page_size==n %}selected{% endif %}>{{ n }}</option>{% endfor %}
+    </select><noscript><button type="submit" class="button">Apply</button></noscript>
+  </form>
+  <span class="page-center">Page {{ paging.page }} of {{ paging.pages }}</span>
+  <nav class="page-links" aria-label="Table pagination">
+    {% if paging.page>1 %}<a href="{{ link(page_num=paging.page-1) }}">← Previous</a>{% endif %}
+    {% if paging.page<paging.pages %}<a href="{{ link(page_num=paging.page+1) }}">Next →</a>{% endif %}
+  </nav>
+</div>{% endif %}

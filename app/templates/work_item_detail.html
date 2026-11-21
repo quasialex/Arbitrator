@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block title %}{{ item.title }} · Arbitrator{% endblock %}
+{% block breadcrumb %}<a href="/governance">GOVERNANCE</a><span class="breadcrumb-divider">/</span><a href="/work-items">WORK ITEMS</a><span class="breadcrumb-divider">/</span>#{{ item.id }}{% endblock %}
+{% block content %}
+<div class="heading work-detail-heading">
+  <div><div class="eyebrow">WORK ITEM #{{ item.id }}</div><h1>{{ item.title }}</h1>
+    <p>{{ item.kind|replace('_',' ')|title }} <span class="work-heading-separator" aria-hidden="true">·</span> Due {{ item.due_at.strftime('%d %b %Y') }}</p>
+  </div>
+  <span class="state-tag work-status-pill">{{ item.status|replace('_',' ')|title }}</span>
+</div>
+<div class="work-detail-layout">
+  <div class="work-detail-column">
+    <section class="panel work-card work-assignment-panel" aria-labelledby="work-assignment-title">
+      <div class="panel-top"><div><h2 id="work-assignment-title">Assignment</h2><p>Responsibility and task context</p></div></div>
+      <dl class="work-facts">
+        <div class="work-fact"><dt>Finding</dt><dd><a href="/findings/{{ item.finding_id }}" class="text-link">{{ item.finding.vulnerability.title }}</a></dd></div>
+        <div class="work-fact"><dt>Assigned to</dt><dd>{{ item.assignee_user.name if item.assignee_user else item.assignee_role.name if item.assignee_role else 'Unassigned' }}</dd></div>
+        <div class="work-fact"><dt>Created by</dt><dd>{{ item.created_by.name }}</dd></div>
+        <div class="work-fact"><dt>Created on</dt><dd>{{ item.created_at.strftime('%d %b %Y, %H:%M') }} UTC</dd></div>
+      </dl>
+      <div class="work-description"><h3>Task details</h3><p>{{ item.description or 'No additional details provided.' }}</p></div>
+    </section>
+    {% if can_manage and item.status in ['pending','in_progress'] %}
+    <section class="panel work-card work-reassign-panel" aria-labelledby="work-reassign-title">
+      <div class="panel-top"><div><h2 id="work-reassign-title">Reassign task</h2><p>Change responsibility or due date</p></div></div>
+      <form class="upload-form" action="/work-items/{{ item.id }}/reassign" method="post">
+        <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+        <label for="work-assignee">Assigned user or role</label>
+        <select id="work-assignee" name="assignee" required>
+          <optgroup label="Users">{% for u in users %}<option value="user:{{ u.id }}" {% if item.assignee_user_id == u.id %}selected{% endif %}>{{ u.name }}</option>{% endfor %}</optgroup>
+          <optgroup label="Roles">{% for r in roles %}<option value="role:{{ r.id }}" {% if item.assignee_role_id == r.id %}selected{% endif %}>{{ r.name }}</option>{% endfor %}</optgroup>
+        </select>
+        <label for="work-due-date">Due date</label>
+        <input id="work-due-date" name="due_date" type="date" value="{{ item.due_at.strftime('%Y-%m-%d') }}" required>
+        <label for="work-reassign-note">Reason for reassignment</label>
+        <textarea id="work-reassign-note" name="note" required minlength="8" rows="3" placeholder="Explain the change"></textarea>
+        <button class="button">Update assignment</button>
+      </form>
+    </section>
+    {% endif %}
+  </div>
+  <div class="work-detail-column">
+    <section class="panel work-card work-status-panel" aria-labelledby="work-status-title">
+      <div class="panel-top"><div><h2 id="work-status-title">Update status</h2><p>Record a decision with supporting rationale</p></div></div>
+      {% if error %}<div class="alert error" role="alert">{{ error }}</div>{% endif %}
+      {% if notice %}<div class="alert success" role="status">{{ notice }}</div>{% endif %}
+      {% if item.status in ['pending','in_progress'] and (can_resolve or can_manage or can_approve) %}
+      <form method="post" action="/work-items/{{ item.id }}/action" class="upload-form">
+        <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+        <label for="work-status">Status</label>
+        <select id="work-status" name="status" required>
+          {% if item.status=='pending' and (can_resolve or can_manage) %}<option value="in_progress">In progress</option>{% endif %}
+          {% if item.kind=='risk_approval' and can_approve %}<option value="approved">Approve risk acceptance</option><option value="rejected">Reject</option>{% endif %}
+          {% if (can_resolve or can_manage) and item.kind!='risk_approval' %}<option value="completed">Complete</option>{% endif %}
+          {% if can_manage %}<option value="cancelled">Cancel</option>{% endif %}
+        </select>
+        <label for="work-rationale">Rationale</label>
+        <textarea id="work-rationale" name="rationale" required minlength="10" maxlength="5000" rows="4" placeholder="Document why this action is appropriate"></textarea>
+        {% if item.kind=='risk_approval' %}
+        <label for="work-review-date">Risk review date (required for approval)</label>
+        <input id="work-review-date" type="date" name="review_date">
+        <p class="field-hint">Risk acceptance requires an authenticated approver and a responsible remediation team.</p>
+        {% endif %}
+        <button class="button primary">Save status</button>
+      </form>
+      {% else %}
+      <p class="helper">No further status changes are available for this item.</p>
+      {% endif %}
+    </section>
+    <section class="panel work-card work-audit work-audit-panel" aria-labelledby="work-audit-title">
+      <div class="panel-top"><div><h2 id="work-audit-title">Audit history</h2><p>Recorded actions and explanations</p></div><span class="work-event-count">{{ item.events|length }} events</span></div>
+      {% if item.events %}
+      <ol class="work-timeline">
+      {% for e in item.events|sort(attribute='created_at',reverse=true) %}
+        <li class="work-event">
+          <span class="work-event-dot" aria-hidden="true"></span>
+          <div class="work-event-main">
+            <div class="work-event-heading"><strong>{{ e.event|replace('_',' ')|title }}</strong><time datetime="{{ e.created_at.isoformat() }}">{{ e.created_at.strftime('%d %b %Y · %H:%M') }} UTC</time></div>
+            <div class="work-event-context"><span>{{ e.actor.name }}</span>{% if e.to_status %}<span class="work-event-status">{{ e.to_status|replace('_',' ')|title }}</span>{% endif %}</div>
+            {% if e.note %}<p class="work-event-note">{{ e.note }}</p>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+      </ol>
+      {% else %}<p class="helper">No recorded activity.</p>{% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}{% block breadcrumb %}INTEGRATIONS{% endblock %}
+{% block content %}
+<div class="heading"><div><div class="eyebrow">CONNECTIONS</div><h1>Integrations</h1><p>Shared, organization-wide connectors and assignment groups.</p></div></div>
+{% if error %}<div class="alert error" role="alert">{{error}}</div>{% endif %}
+{% if notice %}<div class="alert success" role="status">{{notice}}</div>{% endif %}
+<div class="two-col balanced-grid integration-grid">
+<section class="panel integration-card">
+  <div class="panel-top"><div><h2>Tenable Vulnerability Management</h2><p>Organization connector</p></div>
+  <span class="access-chip">{% if not tenable_connected %}Not configured{% elif tenable_check and tenable_check.success %}Verified {{tenable_check.checked_at.strftime('%d %b %Y %H:%M')}} UTC{% elif tenable_check %}Last test failed{% else %}Credentials saved · Not verified{% endif %}</span></div>
+  {% if tenable_connected %}
+    <div class="saved-credentials" aria-label="Saved Tenable credentials">
+      <label>Access key</label><input value="{{tenable_details.access_key or 'Stored encrypted'}}" readonly aria-readonly="true">
+      <label>Secret key</label><input value="•••••••••••• (encrypted)" readonly aria-readonly="true" aria-label="Secret key saved and encrypted">
+    </div>
+    {% if can_manage_integrations %}
+    <div class="integration-controls">
+      <details class="credential-editor"><summary class="button">Edit connection</summary>
+        <form class="upload-form edit-connection-form" action="/account/connectors/tenable" method="post" autocomplete="off">
+          <input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+          <label>Replacement access key</label><input name="access_key" autocomplete="off" required minlength="8" maxlength="300">
+          <label>Replacement secret key</label><input name="secret_key" type="password" autocomplete="new-password" required minlength="8" maxlength="300">
+          <button class="button primary">Save updated connection</button>
+        </form>
+      </details>
+      <form method="post" action="/integrations/tenable/test"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><button class="button">Test connection</button></form>
+      <form method="post" action="/account/connectors/tenable/delete" onsubmit="return confirm('Remove the shared Tenable credentials?');"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><button class="button danger-outline">Disconnect</button></form>
+    </div>
+    {% endif %}
+  {% elif can_manage_integrations %}
+    <form class="upload-form integration-create" action="/account/connectors/tenable" method="post" autocomplete="off">
+      <input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+      <label>Access key</label><input name="access_key" autocomplete="off" required minlength="8" maxlength="300">
+      <label>Secret key</label><input name="secret_key" type="password" autocomplete="new-password" required minlength="8" maxlength="300">
+      <button class="button primary">Save Tenable connection</button>
+    </form>
+  {% else %}<p class="account-subtle">An integration manager can configure this connection.</p>{% endif %}
+  <p class="field-hint integration-footnote">{% if tenable_connected %}Credentials are encrypted at rest. Saved does not mean verified.{% else %}Configure credentials to enable API imports.{% endif %} <a href="/imports" class="text-link">Import center</a></p>
+</section>
+<section class="panel integration-card">
+  <div class="panel-top"><div><h2>ServiceNow</h2><p>Organization incident connector</p></div>
+  <span class="access-chip">{% if not servicenow_connected %}Not configured{% elif snow_check and snow_check.success %}Verified {{snow_check.checked_at.strftime('%d %b %Y %H:%M')}} UTC{% elif snow_check %}Last test failed{% else %}Credentials saved · Not verified{% endif %}</span></div>
+  {% if servicenow_connected %}
+    <div class="saved-credentials" aria-label="Saved ServiceNow credentials">
+      <label>Instance URL</label><input value="{{servicenow_details.instance_url or 'Stored encrypted'}}" readonly aria-readonly="true">
+      <label>Service account username</label><input value="{{servicenow_details.username or 'Stored encrypted'}}" readonly aria-readonly="true">
+      <label>Password</label><input value="•••••••••••• (encrypted)" readonly aria-readonly="true" aria-label="Password saved and encrypted">
+    </div>
+    {% if can_manage_integrations %}
+    <div class="integration-controls">
+      <details class="credential-editor"><summary class="button">Edit connection</summary>
+        <form class="upload-form edit-connection-form" method="post" action="/integrations/servicenow" autocomplete="off">
+          <input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+          <label>Instance URL</label><input type="url" name="instance_url" value="{{servicenow_details.instance_url or ''}}" placeholder="https://your-instance.service-now.com" required>
+          <label>Service account username</label><input name="username" value="{{servicenow_details.username or ''}}" required>
+          <label>Replacement password</label><input name="password" type="password" autocomplete="new-password" required>
+          <button class="button primary">Save updated connection</button>
+        </form>
+      </details>
+      <form method="post" action="/integrations/servicenow/test"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><button class="button">Test connection</button></form>
+      <form method="post" action="/integrations/servicenow/delete" onsubmit="return confirm('Remove the shared ServiceNow credentials?');"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><button class="button danger-outline">Disconnect</button></form>
+    </div>{% endif %}
+  {% elif can_manage_integrations %}
+    <form class="upload-form integration-create" method="post" action="/integrations/servicenow" autocomplete="off">
+      <input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+      <label>Instance URL</label><input type="url" name="instance_url" placeholder="https://your-instance.service-now.com" required>
+      <label>Service account username</label><input name="username" autocomplete="off" required>
+      <label>Password</label><input name="password" type="password" autocomplete="new-password" required>
+      <button class="button primary">Save ServiceNow connection</button>
+    </form>
+  {% else %}<p class="account-subtle">An integration manager can configure this connection.</p>{% endif %}
+  <p class="field-hint integration-footnote">Connect and test to search ServiceNow assignment groups.</p>
+</section></div>
+{% if can_manage_integrations %}
+<section class="panel below-register" id="servicenow-groups">
+  <div class="panel-top"><div><h2>ServiceNow assignment groups</h2><p>Search the live group directory; assign the selected group to a remediation team.</p></div></div>
+  {% if servicenow_connected %}
+  <form class="integrations-group-search" method="post" action="/integrations/servicenow/search"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+  <label>Group name<input name="query" value="{{group_query or ''}}" placeholder="API Team, Infrastructure, Risk" maxlength="70"></label><button class="button" type="submit">Search ServiceNow groups</button></form>
+  {% if group_results %}
+  <form class="upload-form" method="post" action="/integrations/servicenow/groups"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+  <label>Arbitrator remediation team<select name="team_id" required>{% for team in groups %}<option value="{{team.id}}">{{team.name}}</option>{% endfor %}</select></label>
+  <div class="group-search-results" role="group" aria-label="Matching ServiceNow groups">{% for group in group_results %}
+  <label class="group-result"><input type="radio" name="group_sys_id" value="{{group.sys_id}}" required><span><strong>{{group.name}}</strong><small>{{group.email or 'No email'}} · {{group.sys_id}}</small></span></label>
+  {% endfor %}</div><button class="button primary" type="submit">Assign selected group</button></form>
+  {% elif group_query %}<p class="field-hint">No matching groups returned.</p>{% endif %}
+  {% else %}<p class="account-subtle">Save a ServiceNow connection to search its assignment groups.</p>{% endif %}
+  <div class="mapping-list">{% for item in mappings %}<div class="mapping-row"><strong>{{item.team.name}}</strong><span>{{item.group_name or 'ServiceNow group'}}{% if item.group_email %} · {{item.group_email}}{% endif %}<small>{{item.group_sys_id}}</small></span></div>
+  {% else %}<p class="account-subtle">No groups selected.</p>{% endfor %}</div>
+</section>
+{% endif %}
+{% endblock %}

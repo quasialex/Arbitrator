@@ -1,0 +1,24 @@
+{% from '_sort.html' import sortable %}{% extends "base.html" %}{% block breadcrumb %}FINDINGS{% endblock %}
+{% block content %}
+<div class="heading"><div><div class="eyebrow">VULNERABILITY REGISTER</div><h1>Tracked findings</h1><p>Search, prioritize and manage security findings.</p></div><a class="button primary" href="/imports">+ Import findings</a></div>
+{% if notice %}<div class="alert success">{{ notice }}</div>{% endif %}{% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+<section class="panel filters"><form action="/findings" method="get" class="filter-grid">
+<div><label for="fq">Search</label><input id="fq" name="q" value="{{ selected.q }}" placeholder="Finding, host, plugin or CVE"></div>
+<div><label for="fs">Severity</label><select id="fs" name="severity"><option value="">All severities</option>{% for s in ['Critical','High','Medium','Low','Informational'] %}<option value="{{ s }}" {% if selected.severity==s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div>
+<div><label for="fo">Team</label><select id="fo" name="owner"><option value="">Any owner</option><option value="unassigned" {% if selected.owner=='unassigned' %}selected{% endif %}>Unassigned</option>{% for t in groups %}<option value="{{ t.id }}" {% if selected.owner==t.id|string %}selected{% endif %}>{{ t.name }}</option>{% endfor %}</select></div>
+<div><label for="fe">Exposure</label><select id="fe" name="exposure"><option value="">All assets</option>{% for s in ['External','Internal','Review required'] %}<option value="{{ s }}" {% if selected.exposure==s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div>
+<div><label for="fst">Governance state</label><select id="fst" name="state"><option value="">All states</option>{% for v,name in [('pending_triage','Pending triage'),('remediation_requested','Remediation requested'),('escalated','Escalated'),('deferred','Deferred'),('risk_accepted','Risk accepted')] %}<option value="{{ v }}" {% if selected.state==v %}selected{% endif %}>{{ name }}</option>{% endfor %}</select></div>
+<div><label for="feg">Engagement</label><select id="feg" name="engagement_id"><option value="">All engagements</option>{% for e in engagements %}<option value="{{ e.id }}" {% if selected.engagement_id==e.id|string %}selected{% endif %}>{{ e.name }}</option>{% endfor %}</select></div>
+
+<button class="button primary" type="submit">Filter findings</button><a class="button" href="/findings">Clear filters</a>
+</form></section>
+<section class="panel data-panel"><div class="panel-top"><div><h2>Findings register</h2><p>{{ paging.total }} matching findings · page {{ paging.page }} of {{ paging.pages }}</p></div></div>
+<table><thead><tr><th>{{ sortable('ID / FINDING','name',sorting,link) }}</th><th>{{ sortable('ASSET','asset',sorting,link) }}</th><th>{{ sortable('EXPOSURE','exposure',sorting,link) }}</th><th>{{ sortable('SEVERITY','severity',sorting,link) }}</th><th>{{ sortable('REMEDIATION TEAM','owner',sorting,link) }}</th><th>{{ sortable('GOVERNANCE','governance',sorting,link) }}</th><th></th></tr></thead><tbody>
+{% for f in findings %}<tr><td><a class="table-primary" href="/findings/{{ f.id }}">{{ f.vulnerability.title }}</a><span class="muted-line">#{{ f.id }} · {{ f.vulnerability.source }} · {{ f.vulnerability.external_key }}</span></td>
+<td><a class="text-link" href="/assets/{{ f.asset.id }}">{{ f.asset.display_name }}</a><span class="muted-line">{{ f.location or 'No location' }}</span></td>
+<td><span class="state-tag">{{ f.asset.exposure }}</span></td><td><a href="/findings?severity={{ f.severity }}" class="severity sev-{{ f.severity|lower }}">{{ f.severity }}</a></td>
+<td>{% if f.assigned_owner %}{{ f.assigned_owner.name }}{% else %}<span class="needs-owner">Unassigned</span>{% endif %}</td>
+<td>{{ f.workflow_state|replace('_',' ')|title }}</td><td><a class="text-link" href="/findings/{{ f.id }}">Review / assign →</a></td></tr>
+{% else %}<tr><td colspan="7" class="empty-cell">No findings match these filters.</td></tr>{% endfor %}</tbody></table>
+{% include '_pager.html' %}
+</section>{% endblock %}

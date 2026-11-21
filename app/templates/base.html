@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="{{theme|default('light')}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="{{theme|default('light')}}">
+  <title>{% block title %}Arbitrator{% endblock %}</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/site.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="/"><span class="brand-mark"><svg class="brand-icon" aria-hidden="true"><use href="/static/icons.svg#gavel"/></svg></span><span class="brand-name">Arbitrator</span></a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav aria-label="Main navigation">
+        {% if can("dashboard.read") %}<a href="/" class="nav-link {% if active=='dashboard' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#dashboard"/></svg> Overview</a>{% endif %}
+        {% if can("governance.tasks.read") %}<a href="/work-items" class="nav-link {% if active=='work-items' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#inbox"/></svg> My work</a>{% endif %}
+        {% if can("assessments.read") %}<a href="/assessments" class="nav-link {% if active=='assessments' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#clipboard"/></svg> Assessments</a>{% endif %}
+        {% if can("findings.read") %}<a href="/findings" class="nav-link {% if active=='findings' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#search"/></svg> Findings</a>{% endif %}
+        {% if can("observations.read") %}<a href="/observations" class="nav-link {% if active=='observations' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#file"/></svg> Observations</a>{% endif %}
+        {% if can("assets.read") %}<a href="/assets" class="nav-link {% if active=='assets' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#server"/></svg> Assets</a>{% endif %}
+        {% if can("teams.read") %}<a href="/ownership/teams" class="nav-link {% if active=='ownership' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#users"/></svg> Teams & approvers</a>{% endif %}
+        {% if can("routing.read") %}<a href="/ownership/routing" class="nav-link {% if active=='routing' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#routes"/></svg> Assignment rules</a>{% endif %}
+        {% if can("governance.read") %}<a href="/governance" class="nav-link {% if active=='governance' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#check"/></svg> Governance queue</a>{% endif %}
+        {% if can("imports.read") %}<a href="/imports" class="nav-link {% if active=='imports' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#upload"/></svg> Import center</a>{% endif %}
+        {% if can("accounts.manage") %}<a href="/admin/users" class="nav-link {% if active=='accounts' %}active{% endif %}"><svg class="nav-icon" aria-hidden="true"><use href="/static/icons.svg#settings"/></svg> Accounts & permissions</a>{% endif %}
+      </nav>
+
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Security Operations</a><span class="breadcrumb-divider" aria-hidden="true">/</span><strong>{% block breadcrumb %}OVERVIEW{% endblock %}</strong></nav>
+        {% if current_user %}
+        <details class="account-menu">
+          <summary aria-label="Account menu for {{current_user.name}}"><span class="account-avatar" aria-hidden="true">{{current_user.name[:1]|upper}}</span><span class="account-name">{{current_user.name}}</span><span aria-hidden="true">⌄</span></summary>
+          <div class="account-dropdown">
+            <span class="account-caption">SIGNED IN AS</span>
+            <strong>{{current_user.name}}</strong>
+            <a href="/account/profile">My profile</a>
+            <a href="/integrations">Integrations</a>
+            <form action="/logout" method="post"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><button type="submit" class="account-signout">Sign out</button></form>
+          </div>
+        </details>
+        {% endif %}
+      </header>
+      <main class="content">{% block content %}{% endblock %}</main>
+      <footer>Arbitrator</footer>
+    </div>
+  </div>
+</body>
+</html>

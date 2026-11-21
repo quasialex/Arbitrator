@@ -1,0 +1,29 @@
+{% extends 'base.html' %}{% block breadcrumb %}MY PROFILE{% endblock %}
+{% block content %}
+<div class="heading"><div><div class="eyebrow">ACCOUNT</div><h1>My profile</h1><p>Personal details, account security and appearance.</p></div></div>
+{% if error %}<div class="alert error" role="alert">{{error}}</div>{% endif %}
+{% if notice %}<div class="alert success" role="status">{{notice}}</div>{% endif %}
+<div class="two-col balanced-grid account-profile-grid">
+<section class="panel"><h2>Profile details</h2><form method="post" class="upload-form" action="/account/profile"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+<label>Username</label><input value="{{user.username}}" readonly aria-readonly="true">
+<label>Display name</label><input name="name" value="{{user.name}}" maxlength="160" required>
+<label>Email address</label><input type="email" name="email" value="{{user.email}}" maxlength="254" required>
+<button class="button primary">Save profile</button></form></section>
+<section class="panel"><h2>Change password</h2><p class="helper">For security, changing your password signs out all active sessions.</p>
+<form method="post" action="/account/password" class="upload-form"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+<label>Current password</label><input type="password" name="previous" required autocomplete="current-password">
+<label>New password (12+ characters)</label><input type="password" name="password" minlength="12" required autocomplete="new-password">
+<label>Confirm new password</label><input type="password" name="confirm" minlength="12" required autocomplete="new-password">
+<button class="button primary">Change password and sign out</button></form></section>
+<section class="panel account-preferences"><h2>Appearance</h2><form class="upload-form" method="post" action="/account/settings"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+<label>Color theme</label><select name="theme"><option value="light" {% if theme=='light' %}selected{% endif %}>Light</option><option value="dark" {% if theme=='dark' %}selected{% endif %}>Dark</option></select>
+<button class="button primary">Save appearance</button></form></section>
+<section class="panel account-security"><h2>Access &amp; security</h2>
+<div class="account-property"><span class="account-property-label">Account access</span><div class="account-property-value">
+{% if user.is_superuser %}<span class="access-chip">Administrator · Full access</span>{% endif %}
+{% for r in user.roles %}<span class="access-chip">{{r.role.name}}</span>{% else %}{% if not user.is_superuser %}<span class="account-subtle">No access roles assigned</span>{% endif %}{% endfor %}
+</div></div>
+<div class="account-property"><span class="account-property-label">Account status</span><span class="account-property-value"><span class="status-indicator {{'active' if user.is_active else 'inactive'}}"></span>{{'Active' if user.is_active else 'Inactive'}}</span></div>
+<p class="field-hint">Permissions are managed by your organization administrator.</p>
+</section>
+</div>{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}{% block breadcrumb %}<a href="/findings">FINDINGS</a><span class="breadcrumb-divider">/</span>FINDING #{{finding.id}}{% endblock %}
+{% block content %}
+{% if can("governance.tasks.create") %}<div class="heading-actions" style="justify-content:flex-end;margin:0 0 12px"><a class="button" href="/work-items/new?finding_id={{finding.id}}">+ Governance work item</a></div>{% endif %}<a class="back-link" href="/findings">← Findings register</a>
+<div class="heading detail-heading"><div><div class="eyebrow">FINDING #{{ finding.id }} · {{ finding.vulnerability.source|upper }}</div><h1>{{ finding.vulnerability.title }}</h1><p><a class="text-link" href="/assets/{{ finding.asset.id }}">{{ finding.asset.display_name }}</a>{% if finding.location %} · {{ finding.location }}{% endif %}</p></div><span class="severity sev-{{ finding.severity|lower }}">{{ finding.severity }}</span></div>
+{% if error %}<div class="alert error">{{ error }}</div>{% endif %}{% if notice %}<div class="alert success">{{ notice }}</div>{% endif %}
+<div class="metric-grid three"><div class="metric"><div class="metric-label">TECHNICAL STATUS</div><div class="metric-value small">{{ finding.status|title }}</div><div class="metric-note">Not changed by governance</div></div><div class="metric"><div class="metric-label">REMEDIATION TEAM</div><div class="metric-value small">{{ finding.assigned_owner.name if finding.assigned_owner else 'Unassigned' }}</div><div class="metric-note">{{ finding.assignment_reason }}</div></div><div class="metric"><div class="metric-label">GOVERNANCE STATE</div><div class="metric-value small">{{ finding.workflow_state|replace('_',' ')|title }}</div><div class="metric-note">{{ observations|length }} observations · {{ decisions|length }} decisions</div></div></div>
+<section class="panel" style="margin-bottom:20px">
+<div class="panel-top"><div><h2>ServiceNow incident</h2><p>Track remediation in ServiceNow using the responsible team.</p></div><a class="text-link" href="/integrations">Integrations</a></div>
+{% if snow_incident %}
+<div class="incident-linked">
+<div><span class="metric-label">INCIDENT</span><strong>{{snow_incident.number}}</strong></div>
+<div><span class="metric-label">STATE</span><strong>{{snow_incident.state}}</strong></div>
+<div><span class="metric-label">LAST CHECKED</span><strong>{{snow_incident.last_checked_at.strftime('%d %b %Y %H:%M') if snow_incident.last_checked_at else 'Not checked'}}</strong></div></div>
+<div class="incident-actions">
+{% if snow_connected and can('findings.read') %}<form method="post" action="/findings/{{finding.id}}/servicenow/refresh"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><button class="button">Refresh incident state</button></form>{% endif %}
+{% if snow_connected and (can('findings.assign') or can('governance.approve')) %}<form method="post" action="/findings/{{finding.id}}/servicenow/sync"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><button class="button">Sync observations &amp; governance notes</button></form>{% endif %}
+</div><p class="field-hint">Notes synchronize only once per observation or decision when explicitly requested.</p>
+{% elif snow_connected and (can('findings.assign') or can('governance.approve')) %}
+<p>Create a linked incident using this finding's responsible team. Configure its ServiceNow group mapping in Integrations first.</p>
+<form method="post" action="/findings/{{finding.id}}/servicenow/create">
+<input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+<button class="button primary" type="submit" {% if not finding.assigned_owner %}disabled{% endif %}>Create ServiceNow incident</button>
+</form>
+{% else %}
+<p>Connect ServiceNow in <a class="text-link" href="/integrations">Integrations</a> to manage incidents for this finding.</p>
+{% endif %}
+</section>
+{% if correlation_candidates %}
+<section class="panel" style="margin-bottom:20px">
+<div class="panel-top"><div><h2>Possible cross-source matches</h2><p>Suggested associations for analyst review; records are not merged.</p></div></div>
+<table><thead><tr><th>FINDING</th><th>SOURCE</th><th>MATCH EVIDENCE</th><th>CONFIDENCE</th></tr></thead><tbody>
+{% for candidate in correlation_candidates %}<tr>
+<td><a class="text-link" href="/findings/{{candidate.finding.id}}">{{candidate.finding.vulnerability.title}}</a></td>
+<td>{{candidate.finding.vulnerability.source|replace('_',' ')}}</td>
+<td>{{candidate.reason}}</td><td>{{candidate.confidence}}</td>
+</tr>{% endfor %}</tbody></table></section>
+{% endif %}
+<div class="two-col balanced-grid finding-detail-grid"><section class="panel"><div class="panel-top"><div><h2>Technical context</h2><p>Canonical finding and vulnerability definition</p></div></div><dl class="details"><dt>Asset</dt><dd><a href="/assets/{{ finding.asset.id }}" class="text-link">{{ finding.asset.display_name }}</a></dd><dt>Asset exposure</dt><dd>{{ finding.asset.exposure }}</dd><dt>Source identifier</dt><dd class="mono">{{ finding.vulnerability.external_key }}</dd><dt>CVE</dt><dd>{{ finding.vulnerability.cve or 'Not provided' }}</dd><dt>Location</dt><dd>{{ finding.location or 'Not provided' }}</dd><dt>First seen</dt><dd>{{ finding.first_seen.strftime('%Y-%m-%d %H:%M') }} UTC</dd><dt>Last seen</dt><dd>{{ finding.last_seen.strftime('%Y-%m-%d %H:%M') }} UTC</dd></dl><h3>Description</h3><p class="paragraph">{{ finding.vulnerability.description or 'No technical description supplied.' }}</p><h3>Remediation guidance</h3><p class="paragraph">{{ finding.vulnerability.remediation or 'No remediation supplied.' }}</p></section>
+<section class="panel finding-remediation-panel"><div class="panel-top"><div><h2>Remediation ownership</h2><p>Assign a team before requesting a governance decision</p></div><a class="text-link" href="/ownership/teams">Manage teams</a></div>
+<form action="/findings/{{ finding.id }}/assign" method="post" class="upload-form remediation-form"><input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}"><label for="owner_id">Responsible remediation team</label><select id="owner_id" name="owner_id"><option value="">Unassigned / needs triage</option>{% for t in groups %}<option value="{{ t.id }}" {% if finding.assigned_owner_id==t.id %}selected{% endif %}>{{ t.name }}</option>{% endfor %}</select>
+<button class="button primary">Save responsibility</button></form>
+<p class="field-hint"><a class="text-link" href="/ownership/routing">Manage responsibility rules</a></p></section></div>
+<div class="two-col balanced-grid finding-detail-grid"><section class="panel"><div class="panel-top"><div><h2>Governance decision</h2><p>Actions affect workflow state, not vulnerability validation</p></div></div>
+{% if not finding.assigned_owner %}<div class="alert error">Ownership is missing. Assign a remediation team above before recording a governance decision.</div>{% endif %}
+{% if not can("governance.approve") %}<div class="info-box">Your account cannot approve governance decisions. Contact an administrator for the necessary permission.</div>{% endif %}
+<form action="/findings/{{ finding.id }}/decisions" method="post" class="upload-form"><input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}"><label for="action">Governance action</label><select id="action" name="action"><option value="request_remediation">Request remediation</option><option value="escalate">Escalate for review</option><option value="defer">Defer with review date</option><option value="accept_risk">Accept risk with review date</option></select><label for="rationale">Decision rationale</label><textarea id="rationale" name="rationale" minlength="10" maxlength="5000" rows="4" required placeholder="Describe context, authority, and expected next steps."></textarea><label for="review_date">Review date (required for deferral or acceptance)</label><input type="date" id="review_date" name="review_date"><button class="button primary" type="submit" {% if not finding.assigned_owner or not can('governance.approve') %}disabled{% endif %}>Record decision</button></form>
+</section>
+<section class="panel"><div class="panel-top"><div><h2>Governance history</h2><p>Append-only decision records and current outcome</p></div></div>
+{% for d in decisions %}<div class="history-item"><div class="history-marker accent"></div><div><strong>{{ d.action|replace('_',' ')|title }}</strong><small>{{ d.decided_by }} · {{ d.created_at.strftime('%Y-%m-%d %H:%M') }} UTC{% if d.review_date %} · Review {{ d.review_date }}{% endif %}</small><p class="paragraph">{{ d.rationale }}</p></div></div>{% else %}<div class="empty-state">No governance decisions yet. This finding is pending triage.</div>{% endfor %}</section></div>
+<section class="panel"><div class="panel-top"><div><h2>Observation history</h2><p>Original assessment evidence retained across imports</p></div></div><div class="observation-grid">{% for o in observations %}<div class="history-item"><div class="history-marker"></div><div><strong>{{ o.batch.original_filename }}</strong><small><a class="text-link" href="/assessments/{{ o.batch.assessment_id }}">{{ o.batch.assessment.name }}</a> · {{ o.detected_at.strftime('%Y-%m-%d %H:%M') }} UTC · {{ o.batch.source }}</small><pre class="evidence">{{ o.evidence or 'No additional evidence supplied.' }}</pre></div></div>{% else %}<div class="empty-state">No observation records.</div>{% endfor %}</div></section>
+{% endblock %}

@@ -1,0 +1,9 @@
+Host,Finding,Risk,Plugin ID,Description,Recommendation,Owner,Evidence,CVE,Port,Protocol,Path
+web01.atlas.example.test,Missing HTTP security headers,Low,WEB-101,CSP missing on application landing page,Implement appropriate CSP,Web Platform,CSP header absent,,443,tcp,/
+api01.atlas.example.test,Broken object authorization,High,API-220,Authorized synthetic test returned another user record,Enforce resource ownership checks,API Team,Test identity A received synthetic object B,,443,tcp,/v1/documents/42
+sso01.atlas.example.test,Overly permissive session lifetime,Medium,AUTH-110,Idle session remains valid for prolonged duration,Apply idle timeout,Identity Team,Idle test token accepted after configured window,,443,tcp,/login
+web02.atlas.example.test,Verbose error response,Low,WEB-135,Debug details returned in validation error,Suppress stack traces,Web Platform,Synthetic HTTP 500 includes stack frame,,443,tcp,/checkout
+api02.atlas.example.test,Missing request throttling,Medium,API-320,No effective rate limit on synthetic test endpoint,Add scoped rate limits,API Team,200 repeated allowed test requests,,443,tcp,/v1/search
+db01.atlas.example.test,Excessive database permissions,High,DB-400,Application account granted broad data access,Apply least privilege,Data Services,Synthetic database role has write access,,5432,tcp,
+web01.atlas.example.test,Insecure cookie attributes,Medium,WEB-150,Cookie lacks SameSite property,Set SameSite and Secure,Web Platform,Session cookie observed without SameSite,,443,tcp,/
+cdn01.atlas.example.test,Public directory listing,Medium,WEB-180,Directory index enabled for test storage path,Disable directory listing,Infrastructure,Synthetic directory index visible,,443,tcp,/public/
