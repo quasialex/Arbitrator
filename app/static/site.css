@@ -402,3 +402,6 @@ body>main.content>p:first-of-type{text-align:center}
   .centered-editor .heading {align-items:stretch;}
   .centered-editor .heading .button {align-self:flex-start;}
 }
+
+/* Center the new-work-item heading and form together without widening the dialog. */
+.work-item-new-editor {max-width:660px;margin-inline:auto;}
