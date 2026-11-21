@@ -1,0 +1,58 @@
+{
+  "findings": [
+    {
+      "title": "Cross-tenant data exposure",
+      "severity": "Critical",
+      "description": "Synthetic tenant isolation finding",
+      "recommendations": "Enforce tenant filters on all queries",
+      "flaw_id": 351,
+      "report_id": 202,
+      "status": "Open",
+      "assignedTo": "API Team",
+      "affected_assets": {
+        "asset-web01": {
+          "asset": "api01.atlas.example.test",
+          "locationUrl": "/v1/records",
+          "evidence": "Synthetic request returned another tenant record"
+        },
+        "asset-web02": {
+          "asset": "api02.atlas.example.test",
+          "locationUrl": "/v1/records",
+          "evidence": "Synthetic response from second tenant"
+        }
+      }
+    },
+    {
+      "title": "Overly broad administrative privileges",
+      "severity": "High",
+      "description": "Excessive administrative rights on synthetic app",
+      "flaw_id": 352,
+      "report_id": 202,
+      "status": "Open",
+      "affected_assets": {
+        "asset-sso": {
+          "asset": "sso01.atlas.example.test",
+          "evidence": "Synthetic admin role retains excessive permission"
+        }
+      }
+    },
+    {
+      "title": "Weak security headers",
+      "severity": "Low",
+      "description": "Multiple services omit same header",
+      "flaw_id": 353,
+      "report_id": 202,
+      "status": "Open",
+      "affected_assets": {
+        "asset-web01": {
+          "asset": "web01.atlas.example.test",
+          "evidence": "Header absent"
+        },
+        "asset-web02": {
+          "asset": "web02.atlas.example.test",
+          "evidence": "Header absent"
+        }
+      }
+    }
+  ]
+}

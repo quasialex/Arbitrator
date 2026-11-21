@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% block breadcrumb %}<a href="/ownership/teams">REMEDIATION TEAMS</a><span class="breadcrumb-divider">/</span><a href="/ownership/routing">ASSIGNMENT RULES</a><span class="breadcrumb-divider">/</span>EDIT RULE #{{rule.id}}{% endblock %}
+{% block content %}
+<div class="centered-editor">
+<div class="heading"><div><div class="eyebrow">GLOBAL ROUTING POLICY</div><h1>Edit assignment rule #{{rule.id}}</h1><p>Changes apply to new imports immediately; reapply explicitly for existing findings.</p></div><a class="button" href="/ownership/routing">Back to rules</a></div>{% if error %}<div class="alert error">{{error}}</div>{% endif %}
+<section class="panel"><form action="/ownership/routing/{{rule.id}}/edit" method="post" class="upload-form"><input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+<label>Responsible team</label><select name="team_id">{% for t in groups %}<option value="{{t.id}}" {% if t.id==rule.team_id %}selected{% endif %}>{{t.name}}</option>{% endfor %}</select>
+<label>Asset condition</label><select name="asset_kind">{% for value,label in [('none','No asset condition'),('cidr','CIDR'),('hostname_suffix','Hostname suffix'),('hostname_regex','Hostname regex'),('service_code','Service code exact'),('service_code_regex','Service code regex')] %}<option value="{{value}}" {% if value==rule.asset_kind %}selected{% endif %}>{{label}}</option>{% endfor %}</select>
+<label>Asset match pattern</label><input name="asset_pattern" maxlength="180" value="{{rule.asset_pattern}}">
+<label>Vulnerability condition</label><select name="finding_kind">{% for value,label in [('none','No vulnerability condition'),('title_contains','Title contains'),('plugin_prefix','Plugin prefix'),('title_regex','Title regex'),('plugin_regex','Plugin regex')] %}<option value="{{value}}" {% if value==rule.finding_kind %}selected{% endif %}>{{label}}</option>{% endfor %}</select>
+<label>Vulnerability pattern</label><input name="finding_pattern" maxlength="180" value="{{rule.finding_pattern}}"><button class="button primary">Save changes</button></form></section></div>
+{% endblock %}

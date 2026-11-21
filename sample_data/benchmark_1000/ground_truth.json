@@ -1,0 +1,3002 @@
+[
+  {
+    "baseline_plugin": "plugin:a-0000",
+    "candidate_plugin": "plugin:b-0000",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0001",
+    "candidate_plugin": "plugin:b-0001",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0002",
+    "candidate_plugin": "plugin:b-0002",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0003",
+    "candidate_plugin": "plugin:b-0003",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0004",
+    "candidate_plugin": "plugin:b-0004",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0005",
+    "candidate_plugin": "plugin:b-0005",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0006",
+    "candidate_plugin": "plugin:b-0006",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0007",
+    "candidate_plugin": "plugin:b-0007",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0008",
+    "candidate_plugin": "plugin:b-0008",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0009",
+    "candidate_plugin": "plugin:b-0009",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0010",
+    "candidate_plugin": "plugin:b-0010",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0011",
+    "candidate_plugin": "plugin:b-0011",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0012",
+    "candidate_plugin": "plugin:b-0012",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0013",
+    "candidate_plugin": "plugin:b-0013",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0014",
+    "candidate_plugin": "plugin:b-0014",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0015",
+    "candidate_plugin": "plugin:b-0015",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0016",
+    "candidate_plugin": "plugin:b-0016",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0017",
+    "candidate_plugin": "plugin:b-0017",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0018",
+    "candidate_plugin": "plugin:b-0018",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0019",
+    "candidate_plugin": "plugin:b-0019",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0020",
+    "candidate_plugin": "plugin:b-0020",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0021",
+    "candidate_plugin": "plugin:b-0021",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0022",
+    "candidate_plugin": "plugin:b-0022",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0023",
+    "candidate_plugin": "plugin:b-0023",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0024",
+    "candidate_plugin": "plugin:b-0024",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0025",
+    "candidate_plugin": "plugin:b-0025",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0026",
+    "candidate_plugin": "plugin:b-0026",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0027",
+    "candidate_plugin": "plugin:b-0027",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0028",
+    "candidate_plugin": "plugin:b-0028",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0029",
+    "candidate_plugin": "plugin:b-0029",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0030",
+    "candidate_plugin": "plugin:b-0030",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0031",
+    "candidate_plugin": "plugin:b-0031",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0032",
+    "candidate_plugin": "plugin:b-0032",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0033",
+    "candidate_plugin": "plugin:b-0033",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0034",
+    "candidate_plugin": "plugin:b-0034",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0035",
+    "candidate_plugin": "plugin:b-0035",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0036",
+    "candidate_plugin": "plugin:b-0036",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0037",
+    "candidate_plugin": "plugin:b-0037",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0038",
+    "candidate_plugin": "plugin:b-0038",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0039",
+    "candidate_plugin": "plugin:b-0039",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0040",
+    "candidate_plugin": "plugin:b-0040",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0041",
+    "candidate_plugin": "plugin:b-0041",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0042",
+    "candidate_plugin": "plugin:b-0042",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0043",
+    "candidate_plugin": "plugin:b-0043",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0044",
+    "candidate_plugin": "plugin:b-0044",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0045",
+    "candidate_plugin": "plugin:b-0045",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0046",
+    "candidate_plugin": "plugin:b-0046",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0047",
+    "candidate_plugin": "plugin:b-0047",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0048",
+    "candidate_plugin": "plugin:b-0048",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0049",
+    "candidate_plugin": "plugin:b-0049",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0050",
+    "candidate_plugin": "plugin:b-0050",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0051",
+    "candidate_plugin": "plugin:b-0051",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0052",
+    "candidate_plugin": "plugin:b-0052",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0053",
+    "candidate_plugin": "plugin:b-0053",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0054",
+    "candidate_plugin": "plugin:b-0054",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0055",
+    "candidate_plugin": "plugin:b-0055",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0056",
+    "candidate_plugin": "plugin:b-0056",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0057",
+    "candidate_plugin": "plugin:b-0057",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0058",
+    "candidate_plugin": "plugin:b-0058",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0059",
+    "candidate_plugin": "plugin:b-0059",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0060",
+    "candidate_plugin": "plugin:b-0060",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0061",
+    "candidate_plugin": "plugin:b-0061",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0062",
+    "candidate_plugin": "plugin:b-0062",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0063",
+    "candidate_plugin": "plugin:b-0063",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0064",
+    "candidate_plugin": "plugin:b-0064",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0065",
+    "candidate_plugin": "plugin:b-0065",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0066",
+    "candidate_plugin": "plugin:b-0066",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0067",
+    "candidate_plugin": "plugin:b-0067",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0068",
+    "candidate_plugin": "plugin:b-0068",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0069",
+    "candidate_plugin": "plugin:b-0069",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0070",
+    "candidate_plugin": "plugin:b-0070",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0071",
+    "candidate_plugin": "plugin:b-0071",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0072",
+    "candidate_plugin": "plugin:b-0072",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0073",
+    "candidate_plugin": "plugin:b-0073",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0074",
+    "candidate_plugin": "plugin:b-0074",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0075",
+    "candidate_plugin": "plugin:b-0075",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0076",
+    "candidate_plugin": "plugin:b-0076",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0077",
+    "candidate_plugin": "plugin:b-0077",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0078",
+    "candidate_plugin": "plugin:b-0078",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0079",
+    "candidate_plugin": "plugin:b-0079",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0080",
+    "candidate_plugin": "plugin:b-0080",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0081",
+    "candidate_plugin": "plugin:b-0081",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0082",
+    "candidate_plugin": "plugin:b-0082",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0083",
+    "candidate_plugin": "plugin:b-0083",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0084",
+    "candidate_plugin": "plugin:b-0084",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0085",
+    "candidate_plugin": "plugin:b-0085",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0086",
+    "candidate_plugin": "plugin:b-0086",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0087",
+    "candidate_plugin": "plugin:b-0087",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0088",
+    "candidate_plugin": "plugin:b-0088",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0089",
+    "candidate_plugin": "plugin:b-0089",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0090",
+    "candidate_plugin": "plugin:b-0090",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0091",
+    "candidate_plugin": "plugin:b-0091",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0092",
+    "candidate_plugin": "plugin:b-0092",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0093",
+    "candidate_plugin": "plugin:b-0093",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0094",
+    "candidate_plugin": "plugin:b-0094",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0095",
+    "candidate_plugin": "plugin:b-0095",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0096",
+    "candidate_plugin": "plugin:b-0096",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0097",
+    "candidate_plugin": "plugin:b-0097",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0098",
+    "candidate_plugin": "plugin:b-0098",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0099",
+    "candidate_plugin": "plugin:b-0099",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0100",
+    "candidate_plugin": "plugin:b-0100",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0101",
+    "candidate_plugin": "plugin:b-0101",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0102",
+    "candidate_plugin": "plugin:b-0102",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0103",
+    "candidate_plugin": "plugin:b-0103",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0104",
+    "candidate_plugin": "plugin:b-0104",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0105",
+    "candidate_plugin": "plugin:b-0105",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0106",
+    "candidate_plugin": "plugin:b-0106",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0107",
+    "candidate_plugin": "plugin:b-0107",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0108",
+    "candidate_plugin": "plugin:b-0108",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0109",
+    "candidate_plugin": "plugin:b-0109",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0110",
+    "candidate_plugin": "plugin:b-0110",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0111",
+    "candidate_plugin": "plugin:b-0111",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0112",
+    "candidate_plugin": "plugin:b-0112",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0113",
+    "candidate_plugin": "plugin:b-0113",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0114",
+    "candidate_plugin": "plugin:b-0114",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0115",
+    "candidate_plugin": "plugin:b-0115",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0116",
+    "candidate_plugin": "plugin:b-0116",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0117",
+    "candidate_plugin": "plugin:b-0117",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0118",
+    "candidate_plugin": "plugin:b-0118",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0119",
+    "candidate_plugin": "plugin:b-0119",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0120",
+    "candidate_plugin": "plugin:b-0120",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0121",
+    "candidate_plugin": "plugin:b-0121",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0122",
+    "candidate_plugin": "plugin:b-0122",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0123",
+    "candidate_plugin": "plugin:b-0123",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0124",
+    "candidate_plugin": "plugin:b-0124",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0125",
+    "candidate_plugin": "plugin:b-0125",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0126",
+    "candidate_plugin": "plugin:b-0126",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0127",
+    "candidate_plugin": "plugin:b-0127",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0128",
+    "candidate_plugin": "plugin:b-0128",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0129",
+    "candidate_plugin": "plugin:b-0129",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0130",
+    "candidate_plugin": "plugin:b-0130",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0131",
+    "candidate_plugin": "plugin:b-0131",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0132",
+    "candidate_plugin": "plugin:b-0132",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0133",
+    "candidate_plugin": "plugin:b-0133",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0134",
+    "candidate_plugin": "plugin:b-0134",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0135",
+    "candidate_plugin": "plugin:b-0135",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0136",
+    "candidate_plugin": "plugin:b-0136",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0137",
+    "candidate_plugin": "plugin:b-0137",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0138",
+    "candidate_plugin": "plugin:b-0138",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0139",
+    "candidate_plugin": "plugin:b-0139",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0140",
+    "candidate_plugin": "plugin:b-0140",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0141",
+    "candidate_plugin": "plugin:b-0141",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0142",
+    "candidate_plugin": "plugin:b-0142",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0143",
+    "candidate_plugin": "plugin:b-0143",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0144",
+    "candidate_plugin": "plugin:b-0144",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0145",
+    "candidate_plugin": "plugin:b-0145",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0146",
+    "candidate_plugin": "plugin:b-0146",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0147",
+    "candidate_plugin": "plugin:b-0147",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0148",
+    "candidate_plugin": "plugin:b-0148",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0149",
+    "candidate_plugin": "plugin:b-0149",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0150",
+    "candidate_plugin": "plugin:b-0150",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0151",
+    "candidate_plugin": "plugin:b-0151",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0152",
+    "candidate_plugin": "plugin:b-0152",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0153",
+    "candidate_plugin": "plugin:b-0153",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0154",
+    "candidate_plugin": "plugin:b-0154",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0155",
+    "candidate_plugin": "plugin:b-0155",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0156",
+    "candidate_plugin": "plugin:b-0156",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0157",
+    "candidate_plugin": "plugin:b-0157",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0158",
+    "candidate_plugin": "plugin:b-0158",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0159",
+    "candidate_plugin": "plugin:b-0159",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0160",
+    "candidate_plugin": "plugin:b-0160",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0161",
+    "candidate_plugin": "plugin:b-0161",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0162",
+    "candidate_plugin": "plugin:b-0162",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0163",
+    "candidate_plugin": "plugin:b-0163",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0164",
+    "candidate_plugin": "plugin:b-0164",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0165",
+    "candidate_plugin": "plugin:b-0165",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0166",
+    "candidate_plugin": "plugin:b-0166",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0167",
+    "candidate_plugin": "plugin:b-0167",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0168",
+    "candidate_plugin": "plugin:b-0168",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0169",
+    "candidate_plugin": "plugin:b-0169",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0170",
+    "candidate_plugin": "plugin:b-0170",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0171",
+    "candidate_plugin": "plugin:b-0171",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0172",
+    "candidate_plugin": "plugin:b-0172",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0173",
+    "candidate_plugin": "plugin:b-0173",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0174",
+    "candidate_plugin": "plugin:b-0174",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0175",
+    "candidate_plugin": "plugin:b-0175",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0176",
+    "candidate_plugin": "plugin:b-0176",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0177",
+    "candidate_plugin": "plugin:b-0177",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0178",
+    "candidate_plugin": "plugin:b-0178",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0179",
+    "candidate_plugin": "plugin:b-0179",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0180",
+    "candidate_plugin": "plugin:b-0180",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0181",
+    "candidate_plugin": "plugin:b-0181",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0182",
+    "candidate_plugin": "plugin:b-0182",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0183",
+    "candidate_plugin": "plugin:b-0183",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0184",
+    "candidate_plugin": "plugin:b-0184",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0185",
+    "candidate_plugin": "plugin:b-0185",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0186",
+    "candidate_plugin": "plugin:b-0186",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0187",
+    "candidate_plugin": "plugin:b-0187",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0188",
+    "candidate_plugin": "plugin:b-0188",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0189",
+    "candidate_plugin": "plugin:b-0189",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0190",
+    "candidate_plugin": "plugin:b-0190",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0191",
+    "candidate_plugin": "plugin:b-0191",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0192",
+    "candidate_plugin": "plugin:b-0192",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0193",
+    "candidate_plugin": "plugin:b-0193",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0194",
+    "candidate_plugin": "plugin:b-0194",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0195",
+    "candidate_plugin": "plugin:b-0195",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0196",
+    "candidate_plugin": "plugin:b-0196",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0197",
+    "candidate_plugin": "plugin:b-0197",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0198",
+    "candidate_plugin": "plugin:b-0198",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0199",
+    "candidate_plugin": "plugin:b-0199",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0200",
+    "candidate_plugin": "plugin:b-0200",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0201",
+    "candidate_plugin": "plugin:b-0201",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0202",
+    "candidate_plugin": "plugin:b-0202",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0203",
+    "candidate_plugin": "plugin:b-0203",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0204",
+    "candidate_plugin": "plugin:b-0204",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0205",
+    "candidate_plugin": "plugin:b-0205",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0206",
+    "candidate_plugin": "plugin:b-0206",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0207",
+    "candidate_plugin": "plugin:b-0207",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0208",
+    "candidate_plugin": "plugin:b-0208",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0209",
+    "candidate_plugin": "plugin:b-0209",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0210",
+    "candidate_plugin": "plugin:b-0210",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0211",
+    "candidate_plugin": "plugin:b-0211",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0212",
+    "candidate_plugin": "plugin:b-0212",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0213",
+    "candidate_plugin": "plugin:b-0213",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0214",
+    "candidate_plugin": "plugin:b-0214",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0215",
+    "candidate_plugin": "plugin:b-0215",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0216",
+    "candidate_plugin": "plugin:b-0216",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0217",
+    "candidate_plugin": "plugin:b-0217",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0218",
+    "candidate_plugin": "plugin:b-0218",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0219",
+    "candidate_plugin": "plugin:b-0219",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0220",
+    "candidate_plugin": "plugin:b-0220",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0221",
+    "candidate_plugin": "plugin:b-0221",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0222",
+    "candidate_plugin": "plugin:b-0222",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0223",
+    "candidate_plugin": "plugin:b-0223",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0224",
+    "candidate_plugin": "plugin:b-0224",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0225",
+    "candidate_plugin": "plugin:b-0225",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0226",
+    "candidate_plugin": "plugin:b-0226",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0227",
+    "candidate_plugin": "plugin:b-0227",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0228",
+    "candidate_plugin": "plugin:b-0228",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0229",
+    "candidate_plugin": "plugin:b-0229",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0230",
+    "candidate_plugin": "plugin:b-0230",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0231",
+    "candidate_plugin": "plugin:b-0231",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0232",
+    "candidate_plugin": "plugin:b-0232",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0233",
+    "candidate_plugin": "plugin:b-0233",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0234",
+    "candidate_plugin": "plugin:b-0234",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0235",
+    "candidate_plugin": "plugin:b-0235",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0236",
+    "candidate_plugin": "plugin:b-0236",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0237",
+    "candidate_plugin": "plugin:b-0237",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0238",
+    "candidate_plugin": "plugin:b-0238",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0239",
+    "candidate_plugin": "plugin:b-0239",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0240",
+    "candidate_plugin": "plugin:b-0240",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0241",
+    "candidate_plugin": "plugin:b-0241",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0242",
+    "candidate_plugin": "plugin:b-0242",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0243",
+    "candidate_plugin": "plugin:b-0243",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0244",
+    "candidate_plugin": "plugin:b-0244",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0245",
+    "candidate_plugin": "plugin:b-0245",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0246",
+    "candidate_plugin": "plugin:b-0246",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0247",
+    "candidate_plugin": "plugin:b-0247",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0248",
+    "candidate_plugin": "plugin:b-0248",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0249",
+    "candidate_plugin": "plugin:b-0249",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0250",
+    "candidate_plugin": "plugin:b-0250",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0251",
+    "candidate_plugin": "plugin:b-0251",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0252",
+    "candidate_plugin": "plugin:b-0252",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0253",
+    "candidate_plugin": "plugin:b-0253",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0254",
+    "candidate_plugin": "plugin:b-0254",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0255",
+    "candidate_plugin": "plugin:b-0255",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0256",
+    "candidate_plugin": "plugin:b-0256",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0257",
+    "candidate_plugin": "plugin:b-0257",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0258",
+    "candidate_plugin": "plugin:b-0258",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0259",
+    "candidate_plugin": "plugin:b-0259",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0260",
+    "candidate_plugin": "plugin:b-0260",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0261",
+    "candidate_plugin": "plugin:b-0261",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0262",
+    "candidate_plugin": "plugin:b-0262",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0263",
+    "candidate_plugin": "plugin:b-0263",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0264",
+    "candidate_plugin": "plugin:b-0264",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0265",
+    "candidate_plugin": "plugin:b-0265",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0266",
+    "candidate_plugin": "plugin:b-0266",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0267",
+    "candidate_plugin": "plugin:b-0267",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0268",
+    "candidate_plugin": "plugin:b-0268",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0269",
+    "candidate_plugin": "plugin:b-0269",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0270",
+    "candidate_plugin": "plugin:b-0270",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0271",
+    "candidate_plugin": "plugin:b-0271",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0272",
+    "candidate_plugin": "plugin:b-0272",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0273",
+    "candidate_plugin": "plugin:b-0273",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0274",
+    "candidate_plugin": "plugin:b-0274",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0275",
+    "candidate_plugin": "plugin:b-0275",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0276",
+    "candidate_plugin": "plugin:b-0276",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0277",
+    "candidate_plugin": "plugin:b-0277",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0278",
+    "candidate_plugin": "plugin:b-0278",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0279",
+    "candidate_plugin": "plugin:b-0279",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0280",
+    "candidate_plugin": "plugin:b-0280",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0281",
+    "candidate_plugin": "plugin:b-0281",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0282",
+    "candidate_plugin": "plugin:b-0282",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0283",
+    "candidate_plugin": "plugin:b-0283",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0284",
+    "candidate_plugin": "plugin:b-0284",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0285",
+    "candidate_plugin": "plugin:b-0285",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0286",
+    "candidate_plugin": "plugin:b-0286",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0287",
+    "candidate_plugin": "plugin:b-0287",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0288",
+    "candidate_plugin": "plugin:b-0288",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0289",
+    "candidate_plugin": "plugin:b-0289",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0290",
+    "candidate_plugin": "plugin:b-0290",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0291",
+    "candidate_plugin": "plugin:b-0291",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0292",
+    "candidate_plugin": "plugin:b-0292",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0293",
+    "candidate_plugin": "plugin:b-0293",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0294",
+    "candidate_plugin": "plugin:b-0294",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0295",
+    "candidate_plugin": "plugin:b-0295",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0296",
+    "candidate_plugin": "plugin:b-0296",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0297",
+    "candidate_plugin": "plugin:b-0297",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0298",
+    "candidate_plugin": "plugin:b-0298",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0299",
+    "candidate_plugin": "plugin:b-0299",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0300",
+    "candidate_plugin": "plugin:b-0300",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0301",
+    "candidate_plugin": "plugin:b-0301",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0302",
+    "candidate_plugin": "plugin:b-0302",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0303",
+    "candidate_plugin": "plugin:b-0303",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0304",
+    "candidate_plugin": "plugin:b-0304",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0305",
+    "candidate_plugin": "plugin:b-0305",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0306",
+    "candidate_plugin": "plugin:b-0306",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0307",
+    "candidate_plugin": "plugin:b-0307",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0308",
+    "candidate_plugin": "plugin:b-0308",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0309",
+    "candidate_plugin": "plugin:b-0309",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0310",
+    "candidate_plugin": "plugin:b-0310",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0311",
+    "candidate_plugin": "plugin:b-0311",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0312",
+    "candidate_plugin": "plugin:b-0312",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0313",
+    "candidate_plugin": "plugin:b-0313",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0314",
+    "candidate_plugin": "plugin:b-0314",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0315",
+    "candidate_plugin": "plugin:b-0315",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0316",
+    "candidate_plugin": "plugin:b-0316",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0317",
+    "candidate_plugin": "plugin:b-0317",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0318",
+    "candidate_plugin": "plugin:b-0318",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0319",
+    "candidate_plugin": "plugin:b-0319",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0320",
+    "candidate_plugin": "plugin:b-0320",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0321",
+    "candidate_plugin": "plugin:b-0321",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0322",
+    "candidate_plugin": "plugin:b-0322",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0323",
+    "candidate_plugin": "plugin:b-0323",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0324",
+    "candidate_plugin": "plugin:b-0324",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0325",
+    "candidate_plugin": "plugin:b-0325",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0326",
+    "candidate_plugin": "plugin:b-0326",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0327",
+    "candidate_plugin": "plugin:b-0327",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0328",
+    "candidate_plugin": "plugin:b-0328",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0329",
+    "candidate_plugin": "plugin:b-0329",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0330",
+    "candidate_plugin": "plugin:b-0330",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0331",
+    "candidate_plugin": "plugin:b-0331",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0332",
+    "candidate_plugin": "plugin:b-0332",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0333",
+    "candidate_plugin": "plugin:b-0333",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0334",
+    "candidate_plugin": "plugin:b-0334",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0335",
+    "candidate_plugin": "plugin:b-0335",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0336",
+    "candidate_plugin": "plugin:b-0336",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0337",
+    "candidate_plugin": "plugin:b-0337",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0338",
+    "candidate_plugin": "plugin:b-0338",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0339",
+    "candidate_plugin": "plugin:b-0339",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0340",
+    "candidate_plugin": "plugin:b-0340",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0341",
+    "candidate_plugin": "plugin:b-0341",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0342",
+    "candidate_plugin": "plugin:b-0342",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0343",
+    "candidate_plugin": "plugin:b-0343",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0344",
+    "candidate_plugin": "plugin:b-0344",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0345",
+    "candidate_plugin": "plugin:b-0345",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0346",
+    "candidate_plugin": "plugin:b-0346",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0347",
+    "candidate_plugin": "plugin:b-0347",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0348",
+    "candidate_plugin": "plugin:b-0348",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0349",
+    "candidate_plugin": "plugin:b-0349",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0350",
+    "candidate_plugin": "plugin:b-0350",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0351",
+    "candidate_plugin": "plugin:b-0351",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0352",
+    "candidate_plugin": "plugin:b-0352",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0353",
+    "candidate_plugin": "plugin:b-0353",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0354",
+    "candidate_plugin": "plugin:b-0354",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0355",
+    "candidate_plugin": "plugin:b-0355",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0356",
+    "candidate_plugin": "plugin:b-0356",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0357",
+    "candidate_plugin": "plugin:b-0357",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0358",
+    "candidate_plugin": "plugin:b-0358",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0359",
+    "candidate_plugin": "plugin:b-0359",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0360",
+    "candidate_plugin": "plugin:b-0360",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0361",
+    "candidate_plugin": "plugin:b-0361",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0362",
+    "candidate_plugin": "plugin:b-0362",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0363",
+    "candidate_plugin": "plugin:b-0363",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0364",
+    "candidate_plugin": "plugin:b-0364",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0365",
+    "candidate_plugin": "plugin:b-0365",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0366",
+    "candidate_plugin": "plugin:b-0366",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0367",
+    "candidate_plugin": "plugin:b-0367",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0368",
+    "candidate_plugin": "plugin:b-0368",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0369",
+    "candidate_plugin": "plugin:b-0369",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0370",
+    "candidate_plugin": "plugin:b-0370",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0371",
+    "candidate_plugin": "plugin:b-0371",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0372",
+    "candidate_plugin": "plugin:b-0372",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0373",
+    "candidate_plugin": "plugin:b-0373",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0374",
+    "candidate_plugin": "plugin:b-0374",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0375",
+    "candidate_plugin": "plugin:b-0375",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0376",
+    "candidate_plugin": "plugin:b-0376",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0377",
+    "candidate_plugin": "plugin:b-0377",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0378",
+    "candidate_plugin": "plugin:b-0378",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0379",
+    "candidate_plugin": "plugin:b-0379",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0380",
+    "candidate_plugin": "plugin:b-0380",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0381",
+    "candidate_plugin": "plugin:b-0381",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0382",
+    "candidate_plugin": "plugin:b-0382",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0383",
+    "candidate_plugin": "plugin:b-0383",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0384",
+    "candidate_plugin": "plugin:b-0384",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0385",
+    "candidate_plugin": "plugin:b-0385",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0386",
+    "candidate_plugin": "plugin:b-0386",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0387",
+    "candidate_plugin": "plugin:b-0387",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0388",
+    "candidate_plugin": "plugin:b-0388",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0389",
+    "candidate_plugin": "plugin:b-0389",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0390",
+    "candidate_plugin": "plugin:b-0390",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0391",
+    "candidate_plugin": "plugin:b-0391",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0392",
+    "candidate_plugin": "plugin:b-0392",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0393",
+    "candidate_plugin": "plugin:b-0393",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0394",
+    "candidate_plugin": "plugin:b-0394",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0395",
+    "candidate_plugin": "plugin:b-0395",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0396",
+    "candidate_plugin": "plugin:b-0396",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0397",
+    "candidate_plugin": "plugin:b-0397",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0398",
+    "candidate_plugin": "plugin:b-0398",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0399",
+    "candidate_plugin": "plugin:b-0399",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0400",
+    "candidate_plugin": "plugin:b-0400",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0401",
+    "candidate_plugin": "plugin:b-0401",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0402",
+    "candidate_plugin": "plugin:b-0402",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0403",
+    "candidate_plugin": "plugin:b-0403",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0404",
+    "candidate_plugin": "plugin:b-0404",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0405",
+    "candidate_plugin": "plugin:b-0405",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0406",
+    "candidate_plugin": "plugin:b-0406",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0407",
+    "candidate_plugin": "plugin:b-0407",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0408",
+    "candidate_plugin": "plugin:b-0408",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0409",
+    "candidate_plugin": "plugin:b-0409",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0410",
+    "candidate_plugin": "plugin:b-0410",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0411",
+    "candidate_plugin": "plugin:b-0411",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0412",
+    "candidate_plugin": "plugin:b-0412",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0413",
+    "candidate_plugin": "plugin:b-0413",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0414",
+    "candidate_plugin": "plugin:b-0414",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0415",
+    "candidate_plugin": "plugin:b-0415",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0416",
+    "candidate_plugin": "plugin:b-0416",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0417",
+    "candidate_plugin": "plugin:b-0417",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0418",
+    "candidate_plugin": "plugin:b-0418",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0419",
+    "candidate_plugin": "plugin:b-0419",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0420",
+    "candidate_plugin": "plugin:b-0420",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0421",
+    "candidate_plugin": "plugin:b-0421",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0422",
+    "candidate_plugin": "plugin:b-0422",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0423",
+    "candidate_plugin": "plugin:b-0423",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0424",
+    "candidate_plugin": "plugin:b-0424",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0425",
+    "candidate_plugin": "plugin:b-0425",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0426",
+    "candidate_plugin": "plugin:b-0426",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0427",
+    "candidate_plugin": "plugin:b-0427",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0428",
+    "candidate_plugin": "plugin:b-0428",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0429",
+    "candidate_plugin": "plugin:b-0429",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0430",
+    "candidate_plugin": "plugin:b-0430",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0431",
+    "candidate_plugin": "plugin:b-0431",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0432",
+    "candidate_plugin": "plugin:b-0432",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0433",
+    "candidate_plugin": "plugin:b-0433",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0434",
+    "candidate_plugin": "plugin:b-0434",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0435",
+    "candidate_plugin": "plugin:b-0435",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0436",
+    "candidate_plugin": "plugin:b-0436",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0437",
+    "candidate_plugin": "plugin:b-0437",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0438",
+    "candidate_plugin": "plugin:b-0438",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0439",
+    "candidate_plugin": "plugin:b-0439",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0440",
+    "candidate_plugin": "plugin:b-0440",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0441",
+    "candidate_plugin": "plugin:b-0441",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0442",
+    "candidate_plugin": "plugin:b-0442",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0443",
+    "candidate_plugin": "plugin:b-0443",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0444",
+    "candidate_plugin": "plugin:b-0444",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0445",
+    "candidate_plugin": "plugin:b-0445",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0446",
+    "candidate_plugin": "plugin:b-0446",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0447",
+    "candidate_plugin": "plugin:b-0447",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0448",
+    "candidate_plugin": "plugin:b-0448",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0449",
+    "candidate_plugin": "plugin:b-0449",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0450",
+    "candidate_plugin": "plugin:b-0450",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0451",
+    "candidate_plugin": "plugin:b-0451",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0452",
+    "candidate_plugin": "plugin:b-0452",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0453",
+    "candidate_plugin": "plugin:b-0453",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0454",
+    "candidate_plugin": "plugin:b-0454",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0455",
+    "candidate_plugin": "plugin:b-0455",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0456",
+    "candidate_plugin": "plugin:b-0456",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0457",
+    "candidate_plugin": "plugin:b-0457",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0458",
+    "candidate_plugin": "plugin:b-0458",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0459",
+    "candidate_plugin": "plugin:b-0459",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0460",
+    "candidate_plugin": "plugin:b-0460",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0461",
+    "candidate_plugin": "plugin:b-0461",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0462",
+    "candidate_plugin": "plugin:b-0462",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0463",
+    "candidate_plugin": "plugin:b-0463",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0464",
+    "candidate_plugin": "plugin:b-0464",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0465",
+    "candidate_plugin": "plugin:b-0465",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0466",
+    "candidate_plugin": "plugin:b-0466",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0467",
+    "candidate_plugin": "plugin:b-0467",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0468",
+    "candidate_plugin": "plugin:b-0468",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0469",
+    "candidate_plugin": "plugin:b-0469",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0470",
+    "candidate_plugin": "plugin:b-0470",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0471",
+    "candidate_plugin": "plugin:b-0471",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0472",
+    "candidate_plugin": "plugin:b-0472",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0473",
+    "candidate_plugin": "plugin:b-0473",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0474",
+    "candidate_plugin": "plugin:b-0474",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0475",
+    "candidate_plugin": "plugin:b-0475",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0476",
+    "candidate_plugin": "plugin:b-0476",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0477",
+    "candidate_plugin": "plugin:b-0477",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0478",
+    "candidate_plugin": "plugin:b-0478",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0479",
+    "candidate_plugin": "plugin:b-0479",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0480",
+    "candidate_plugin": "plugin:b-0480",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0481",
+    "candidate_plugin": "plugin:b-0481",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0482",
+    "candidate_plugin": "plugin:b-0482",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0483",
+    "candidate_plugin": "plugin:b-0483",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0484",
+    "candidate_plugin": "plugin:b-0484",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0485",
+    "candidate_plugin": "plugin:b-0485",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0486",
+    "candidate_plugin": "plugin:b-0486",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0487",
+    "candidate_plugin": "plugin:b-0487",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0488",
+    "candidate_plugin": "plugin:b-0488",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0489",
+    "candidate_plugin": "plugin:b-0489",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0490",
+    "candidate_plugin": "plugin:b-0490",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0491",
+    "candidate_plugin": "plugin:b-0491",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0492",
+    "candidate_plugin": "plugin:b-0492",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0493",
+    "candidate_plugin": "plugin:b-0493",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0494",
+    "candidate_plugin": "plugin:b-0494",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0495",
+    "candidate_plugin": "plugin:b-0495",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0496",
+    "candidate_plugin": "plugin:b-0496",
+    "case": "true_match",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0497",
+    "candidate_plugin": "plugin:b-0497",
+    "case": "different_service",
+    "same_underlying_issue": false
+  },
+  {
+    "baseline_plugin": "plugin:a-0498",
+    "candidate_plugin": "plugin:b-0498",
+    "case": "asset_alias",
+    "same_underlying_issue": true
+  },
+  {
+    "baseline_plugin": "plugin:a-0499",
+    "candidate_plugin": "plugin:b-0499",
+    "case": "unrelated",
+    "same_underlying_issue": false
+  }
+]

@@ -1,0 +1,68 @@
+{% from '_sort.html' import sortable %}{% extends "base.html" %}{% block breadcrumb %}IMPORT CENTER{% endblock %}
+{% block content %}
+<div class="heading"><div><div class="eyebrow">EVIDENCE INGESTION</div><h1>Import findings</h1><p>Import source evidence into an existing assessment. An import is not itself an assessment.</p></div><a href="/assessments" class="button">Manage assessments</a></div>
+{% if notice %}<div class="alert success">{{ notice }}</div>{% endif %}
+{% if error %}<div class="alert error"><strong>Import rejected</strong><span>{{ error }}</span></div>{% endif %}
+{% if result %}<div class="alert success"><strong>{% if result.previously_imported %}Already imported to this assessment{% else %}Import successful{% endif %}</strong><span>{{ result.rows }} rows · {{ result.assets_created }} assets · {{ result.findings_created }} new findings · {{ result.reobserved }} reobserved · {{ result.observations_created }} observations</span></div>{% endif %}
+<div class="two-col balanced-grid"><section class="panel"><div class="panel-top"><div><h2>Upload findings</h2><p>Up to 2 MiB · 10,000 observations max</p></div></div>
+{% if assessments %}<form action="/imports" method="post" enctype="multipart/form-data" class="upload-form"><input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+<label for="assessment_id">Destination assessment</label><select name="assessment_id" id="assessment_id" required>{% for a in assessments %}<option value="{{ a.id }}" {% if selected_assessment==a.id|string %}selected{% endif %}>{{ a.engagement.name }} / {{ a.name }}</option>{% endfor %}</select>
+<label for="source">Source format</label><select name="source" id="source" aria-controls="format-guide"><option value="generic_csv">Generic penetration-test CSV</option><option value="nessus_csv">Nessus CSV</option><option value="nuclei_jsonl">Nuclei JSONL</option><option value="plextrac_json">PlexTrac PTRAC</option></select>
+<label for="uploaded">Source file</label><input type="file" id="uploaded" name="uploaded" accept=".csv,.jsonl,.json" required>
+<button class="button primary" type="submit">Import and normalize</button></form>
+{% else %}<div class="info-box">Create an assessment first, then return here to import its findings.</div><a href="/assessments" class="button primary">Create assessment</a>{% endif %}
+</section>
+<section class="panel" id="format-guide"><div class="panel-top"><div><h2>Selected source format</h2><p>Requirements change when you select an input format</p></div></div>
+<div class="format-help" data-format="generic_csv"><h3>Generic penetration-test CSV</h3><p>Manual consultant findings and supported scanner CSV layouts.</p><div class="help-list"><div><strong>Required</strong><span>Host / Asset, Title / Finding, Severity (Critical, High, Medium, Low, Informational)</span></div><div><strong>Optional</strong><span>Plugin ID, Description, Remediation, Evidence, CVE, Port, Protocol, Path</span></div><div><strong>Identity</strong><span>Asset, optional plugin identifier and service location; CVE is not mandatory; imported owner labels never assign responsibility</span></div></div></div>
+<div class="format-help" data-format="nessus_csv" hidden><h3>Nessus CSV</h3><p>Infrastructure scanner export with Nessus header conventions.</p><div class="help-list"><div><strong>Required</strong><span>Host, Name / Plugin Name, Risk / Severity</span></div><div><strong>Supported</strong><span>Plugin ID, CVE, Port, Protocol, Synopsis / Description, Solution, Plugin Output</span></div><div><strong>Numeric risk mapping</strong><span>0=Informational, 1=Low, 2=Medium, 3=High, 4=Critical</span></div></div></div>
+<div class="format-help" data-format="nuclei_jsonl" hidden><h3>Nuclei JSONL</h3><p>One JSON result object per line.</p><div class="help-list"><div><strong>Required</strong><span>template-id, host or matched-at, info.severity</span></div><div><strong>Supported</strong><span>info.name, info.description, info.remediation, info.classification, extracted-results</span></div><div><strong>Location</strong><span>Preserves target path when available; no network requests during import</span></div></div></div>
+<div class="format-help" data-format="plextrac_json" hidden><h3>PlexTrac PTRAC</h3><p>PlexTrac findings export (.ptrac), with JSON-based contents.</p><div class="help-list"><div><strong>Finding</strong><span>title, severity, description, recommendations, createdAt and exhibits</span></div><div><strong>Assets</strong><span>affected_assets, URL paths, ports and merged_assets fallback</span></div><div><strong>Matching</strong><span>MD5 of title as the imported plugin identifier; one observation per affected asset</span></div></div></div>
+</section></div>
+<section class="panel">
+<div class="panel-top"><div><h2>Import from Tenable</h2><p>Request and normalize a vulnerability export through the Tenable API.</p></div><a class="button" href="/integrations">Manage connection</a></div>
+{% if tenable_connected %}
+<form method="post" action="/imports/tenable" class="upload-form">
+<input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+<label>Destination assessment</label><select name="assessment_id" required>{% for a in assessments %}<option value="{{a.id}}">{{a.engagement.name}} / {{a.name}}</option>{% endfor %}</select>
+<div class="two-col compact"><label>Date field<select name="time_field"><option value="last_seen">Last seen</option><option value="last_found">Last found</option><option value="indexed_at">Indexed at</option></select></label>
+<label>Recent days (when no start date)<input type="number" name="days" min="1" max="365" value="30"></label></div>
+<div class="two-col compact"><label>Start date<input type="date" name="start_date"></label><label>End date<input type="date" name="end_date"></label></div>
+<div class="two-col compact"><label>Asset subnet (CIDR)<input name="cidr_range" placeholder="10.20.0.0/16"></label>
+<label>Plugin family <span class="account-subtle">(comma separated)</span><input name="plugin_family" placeholder="Web Servers"></label></div>
+<div class="two-col compact"><label>Plugin IDs (comma-separated)<input name="plugin_ids" placeholder="104743, 19506"></label>
+<label>Minimum VPR (optional)<input type="number" name="vpr_min" min="0" max="10" step=".1" placeholder="e.g. 6.0"></label></div>
+<div class="two-col compact"><label>Tag category<input name="tag_category" placeholder="Environment"></label><label>Tag value<input name="tag_value" placeholder="Production"></label></div>
+<label>Additional tag filters <span class="account-subtle">(one Category=Value per line; use | for multiple values)</span></label>
+<textarea name="tag_filters" rows="2" placeholder="Business Criticality=High|Critical&#10;Business Unit=Payments"></textarea>
+<fieldset class="filter-fieldset"><legend>Severity</legend>
+{% for severity in ['info','low','medium','high','critical'] %}<label class="inline-check"><input type="checkbox" name="severities" value="{{severity}}" checked> {{severity|title}}</label>{% endfor %}
+</fieldset>
+<fieldset class="filter-fieldset"><legend>Severity handling</legend>
+{% for typ in ['NONE','RECASTED','ACCEPTED'] %}<label class="inline-check"><input type="checkbox" name="severity_modification_type" value="{{typ}}" {% if typ!='ACCEPTED' %}checked{% endif %}> {{typ|title}}</label>{% endfor %}
+</fieldset>
+<button class="button primary" type="submit">Run Tenable export</button>
+<p class="field-hint">Exports run on demand. Large exports may require another attempt; current synchronous runs are bounded. End date is enforced after chunk retrieval.</p>
+</form>
+{% else %}
+<p>Connect your Tenable account in <a class="text-link" href="/integrations">Integrations</a> to configure an export.</p>
+{% endif %}
+</section>
+{% if can('accounts.manage') %}
+<section class="panel sample-data-entry"><div class="panel-top"><div><h2>Sample assessment campaign</h2><p>Load fictional findings to explore imports, ownership and governance without external connectors.</p></div><a class="button" href="/admin/sample-data">Manage sample data</a></div></section>
+{% endif %}
+<section class="panel data-panel"><div class="panel-top"><div><h2>Import history</h2><p>Every imported file is linked to a named assessment</p></div></div>
+<table><thead><tr><th>{{ sortable('FILE','file',sorting,link) }}</th><th>{{ sortable('ASSESSMENT','assessment',sorting,link) }}</th><th>{{ sortable('FORMAT','format',sorting,link) }}</th><th>{{ sortable('ROWS','rows',sorting,link) }}</th><th>{{ sortable('DATE (UTC)','date',sorting,link) }}</th></tr></thead><tbody>
+{% for b in batches %}<tr><td><strong>{{ b.original_filename }}</strong></td><td><a class="text-link" href="/assessments/{{ b.assessment_id }}">{{ b.assessment.name }}</a></td><td>{{ b.source|replace('_',' ') }}</td><td>{{ b.row_count }}</td><td>{{ b.imported_at.strftime('%Y-%m-%d %H:%M') }}</td></tr>
+{% else %}<tr><td colspan="5" class="empty-cell">No imports recorded yet.</td></tr>{% endfor %}</tbody></table>{% if paging %}{% include '_pager.html' %}{% endif %}</section>
+<script>
+(function(){
+  const source=document.querySelector('#source'), file=document.querySelector('#uploaded');
+  if(!source)return;
+  function showFormat(){
+    document.querySelectorAll('.format-help').forEach(el=>{el.hidden=(el.dataset.format!==source.value);});
+    if(file)file.accept=(source.value==='nuclei_jsonl' ? '.jsonl' : source.value==='plextrac_json' ? '.json,.ptrac' : '.csv');
+  }
+  source.addEventListener('change',showFormat); showFormat();
+})();
+</script>
+{% endblock %}

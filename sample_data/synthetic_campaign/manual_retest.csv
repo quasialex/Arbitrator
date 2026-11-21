@@ -1,0 +1,7 @@
+Host,Finding,Risk,Plugin ID,Description,Recommendation,Owner,Evidence,CVE,Port,Protocol,Path
+web01.atlas.example.test,Missing HTTP security headers,Low,WEB-101,CSP missing on application landing page,Implement appropriate CSP,Web Platform,Second assessment: CSP header absent,,443,tcp,/
+api01.atlas.example.test,Broken object authorization,High,API-220,Authorized synthetic test returned another user record,Enforce resource ownership checks,API Team,Second assessment: Test identity A received synthetic object B,,443,tcp,/v1/documents/42
+api02.atlas.example.test,Missing request throttling,Medium,API-320,No effective rate limit on synthetic test endpoint,Add scoped rate limits,API Team,Second assessment: 200 repeated allowed test requests,,443,tcp,/v1/search
+web01.atlas.example.test,Insecure cookie attributes,Medium,WEB-150,Cookie lacks SameSite property,Set SameSite and Secure,Web Platform,Second assessment: Session cookie observed without SameSite,,443,tcp,/
+api01.atlas.example.test,GraphQL schema exposed,Low,API-355,Introspection exposed for test API,Apply schema access policy,API Team,Synthetic introspection response,,443,tcp,/graphql
+web02.atlas.example.test,CORS trust boundary issue,High,WEB-285,Unexpected trusted origin accepted in test,Restrict trusted origins,Web Platform,Synthetic CORS response with allowed origin,,443,tcp,/api/data

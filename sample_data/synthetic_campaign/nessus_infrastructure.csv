@@ -1,0 +1,7 @@
+Host,Plugin ID,Name,Risk,Description,Solution,Port,Protocol,Plugin Output,CVE
+192.0.2.10,104743,Outdated TLS protocol support,2,Obsolete protocol enabled,Disable TLS 1.0/1.1,443,tcp,Protocol TLSv1.0 accepted,CVE-2020-0001
+192.0.2.11,51192,Information disclosure via service banners,1,Service banner reveals version,Suppress banner details,22,tcp,Banner includes full version,
+192.0.2.12,15901,SSL certificate expiry approaching,2,Certificate expiry occurs soon,Rotate certificate,443,tcp,Test certificate expires in 21 days,
+192.0.2.13,10863,SMB signing not required,3,Host accepts unsigned sessions,Require SMB signing,445,tcp,Synthetic SMB signing flag false,
+192.0.2.14,19506,NTP mode 6 queries allowed,1,NTP exposes query interface,Restrict control queries,123,udp,Synthetic response received,
+192.0.2.15,11219,Unsupported database version,4,Unsupported PostgreSQL version,Upgrade database engine,5432,tcp,PostgreSQL version test placeholder,

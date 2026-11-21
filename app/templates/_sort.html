@@ -1,0 +1,11 @@
+{% macro sortable(label,key,sorting,link) -%}
+<a class="sort-link {% if sorting.key==key %}is-sorted{% endif %}"
+   href="{{ link(sort=key, direction=('desc' if sorting.key==key and sorting.direction=='asc' else 'asc'), page_num=1) }}"
+   aria-label="Sort by {{ label }}{% if sorting.key==key %}, currently {{ 'ascending' if sorting.direction=='asc' else 'descending' }}{% endif %}">
+  {{ label }} <span class="sort-glyph {% if sorting.key!=key %}sort-unsorted{% endif %}" aria-hidden="true">{% if sorting.key==key %}{{ '↑' if sorting.direction=='asc' else '↓' }}{% else %}<span class="sort-caret">▴</span><span class="sort-caret">▾</span>{% endif %}</span>
+</a>
+{%- endmacro %}
+
+{% macro sort_batches(label,key,sorting,link) -%}
+<a class="sort-link {% if sorting.key==key %}is-sorted{% endif %}" href="{{link(batch_sort=key,batch_direction=('desc' if sorting.key==key and sorting.direction=='asc' else 'asc'))}}">{{label}} <span aria-hidden="true" class="sort-glyph {% if sorting.key!=key %}sort-unsorted{% endif %}">{% if sorting.key==key %}{{ '↑' if sorting.direction=='asc' else '↓' }}{% else %}<span class="sort-caret">▴</span><span class="sort-caret">▾</span>{% endif %}</span></a>
+{%- endmacro %}

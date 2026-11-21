@@ -1,0 +1,43 @@
+name: Verify Arbitrator
+on:
+  push:
+    branches: [main, development]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: python -m pip install -e '.[dev]'
+      - name: Test and coverage
+        run: |
+          python -m pytest -q --junitxml=pytest-results.xml
+          bash scripts/run_coverage.sh
+      - name: Verify synthetic matching behavior
+        run: python -m scripts.benchmark_correlation --records 200 --runs 1 --output docs/evidence/correlation_ci.json
+      - name: Verify SQLite restore
+        run: python -m scripts.verify_sqlite_backup --output docs/evidence/backup_ci.json
+      - name: Verify source archive cleanliness
+        run: python -m compileall -q app scripts
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-${{ matrix.python-version }}
+          if-no-files-found: warn
+          path: |
+            pytest-results.xml
+            coverage.xml
+            docs/evidence/correlation_ci.json
+            docs/evidence/backup_ci.json

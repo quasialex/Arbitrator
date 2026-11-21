@@ -1,0 +1,33 @@
+# Runtime, secrets and local credentials
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pyre/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+.env
+.env.*
+!.env.example
+.secrets/
+local_data/
+private_data/
+private/
+# Generated local evidence not committed
+pytest-results.xml
+junit.xml
+*.log
+.DS_Store
+.vscode/
+.idea/

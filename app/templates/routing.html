@@ -1,0 +1,107 @@
+{% from '_sort.html' import sortable %}{% extends 'base.html' %}{% block breadcrumb %}<a href="/ownership/teams">REMEDIATION TEAMS</a><span class="breadcrumb-divider">/</span>ASSIGNMENT RULES{% endblock %}
+{% block content %}<div class="heading"><div><div class="eyebrow">ORGANIZATION-WIDE REMEDIATION MAPPING</div><h1>Finding assignment rules</h1><p>Configure automatic remediation assignments.</p></div><a class="button" href="/ownership/teams">Manage teams</a></div>
+{% if error %}<div class="alert error">{{error}}</div>{% endif %}{% if notice %}<div class="alert success">{{notice}}</div>{% endif %}
+<section class="panel data-panel"><div class="panel-top"><div><h2>Global mapping catalog</h2><p>{{paging.total}} rules · Edit a rule to correct it; no engagement or manual priority is involved.</p></div></div>
+<table><thead><tr><th>{{ sortable('ID','id',sorting,link) }}</th><th>{{ sortable('RESPONSIBLE TEAM','team',sorting,link) }}</th><th>{{ sortable('ASSET CONDITION','asset',sorting,link) }}</th><th>{{ sortable('VULNERABILITY CONDITION','finding',sorting,link) }}</th><th></th></tr></thead><tbody>{% for r in rules %}
+<tr><td class="mono">#{{r.id}}</td><td>{{r.team.name}}</td><td>{{r.asset_kind|replace('_',' ')|title}}{% if r.asset_pattern %}<small class="muted-line mono">{{r.asset_pattern}}</small>{% endif %}</td><td>{{r.finding_kind|replace('_',' ')|title}}{% if r.finding_pattern %}<small class="muted-line mono">{{r.finding_pattern}}</small>{% endif %}</td><td><a class="text-link" href="/ownership/routing/{{r.id}}/edit">Edit →</a></td></tr>
+{% else %}<tr><td colspan="5" class="empty-cell">Create your first global responsibility rule.</td></tr>{% endfor %}</tbody></table>{% include '_pager.html' %}</section>
+<div class="two-col balanced-grid below-register"><section class="panel"><h2>Add global responsibility rule</h2><p class="helper">Specify an asset pattern, a vulnerability pattern, or both. A more specific combination wins; equal conflicting matches require human review.</p><form class="upload-form" action="/ownership/routing" method="post"><input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+<label>Responsible remediation team</label><select name="team_id" required>{% for t in groups %}<option value="{{t.id}}">{{t.name}}</option>{% endfor %}</select>
+<label>Asset condition</label><select name="asset_kind"><option value="none">Not constrained by asset</option><option value="cidr">Network CIDR</option><option value="hostname_suffix">Hostname suffix</option><option value="hostname_regex">Hostname regex (bounded)</option><option value="service_code">Service code exact</option><option value="service_code_regex">Service code regex (bounded)</option></select>
+<label>Asset match pattern</label><input name="asset_pattern" maxlength="180" placeholder="^web[0-9]+\.corp\.example$ or 10.0.0.0/8">
+<label>Vulnerability condition</label><select name="finding_kind"><option value="none">Not constrained by vulnerability</option><option value="title_contains">Title contains</option><option value="plugin_prefix">Plugin/rule key starts with</option><option value="title_regex">Title regex (bounded)</option><option value="plugin_regex">Plugin/rule key regex (bounded)</option></select>
+<label>Vulnerability match pattern</label><input name="finding_pattern" maxlength="180" placeholder="tls, plugin:12345 or ^.*ssl.*$">
+<button class="button primary">Create global rule</button></form></section>
+<section class="panel route-evaluation"><h2>Re-evaluate findings</h2>
+<p class="helper">Apply current assignment rules to one targeted selection. Existing manual assignments remain unchanged; conflicting matches require analyst review.</p>
+<form id="route-eval-form" class="upload-form" method="post" action="/ownership/routing/apply-scoped">
+<input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+<label for="route-eval-scope">Evaluation scope</label>
+<select name="scope" id="route-eval-scope">
+<option value="finding">Single finding ID</option>
+<option value="hostname">Hostname regular expression</option>
+<option value="service_code">Service code regular expression</option>
+<option value="cidr">IP network (CIDR)</option>
+<option value="team">Currently assigned team</option>
+</select>
+<div class="route-target-controls">
+<label for="route-eval-pattern" id="route-target-label">Finding ID</label>
+<input name="pattern" id="route-eval-pattern" maxlength="180" required inputmode="numeric"
+       list="route-finding-options" placeholder="Enter a finding ID or choose a suggestion" autocomplete="off">
+<select id="route-eval-team" name="pattern" disabled hidden aria-label="Currently assigned team">
+<option value="">Select a responsible team</option>
+{% for group in groups %}<option value="{{ group.id }}">{{ group.name }}</option>{% endfor %}
+</select>
+<datalist id="route-finding-options">
+{% for suggestion in route_suggestions.findings %}<option value="{{ suggestion.id }}" label="{{ suggestion.title }} · {{ suggestion.asset }}"></option>{% endfor %}
+</datalist>
+<datalist id="route-hostname-options">
+{% for name in route_suggestions.hostnames %}<option value="{{ name }}"></option>{% endfor %}
+</datalist>
+<datalist id="route-service-options">
+{% for code in route_suggestions.service_codes %}<option value="{{ code }}"></option>{% endfor %}
+</datalist>
+<datalist id="route-cidr-options">
+{% for network in route_suggestions.cidr %}<option value="{{ network }}"></option>{% endfor %}
+</datalist>
+<small class="field-hint" id="route-target-hint">Choose an existing finding ID or enter one directly.</small>
+</div>
+<button class="button primary" type="submit">Re-evaluate selected findings</button>
+</form>
+<div class="route-eval-all">
+<h3>All findings</h3>
+<p class="helper">Evaluate the entire findings register against the latest mapping rules. This may update automatically assigned teams, but never overwrites manual assignments.</p>
+<form method="post" action="/ownership/routing/apply" onsubmit="return confirm('Re-evaluate assignment rules for ALL findings? Manual assignments will be preserved.');">
+<input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+<button type="submit" class="button route-all-button">Re-evaluate all findings</button>
+</form>
+</div>
+</section></div>
+<script>
+(() => {
+  const scope = document.getElementById('route-eval-scope');
+  const target = document.getElementById('route-eval-pattern');
+  const team = document.getElementById('route-eval-team');
+  const label = document.getElementById('route-target-label');
+  const hint = document.getElementById('route-target-hint');
+  if (!scope || !target || !team) return;
+  const hostnames = new Set({{ route_suggestions.hostnames|tojson }});
+  const serviceCodes = new Set({{ route_suggestions.service_codes|tojson }});
+  const settings = {
+    finding: {label: 'Finding ID', placeholder: 'Enter a finding ID or choose a suggestion', list: 'route-finding-options', hint: 'Choose an existing finding ID or enter one directly.', mode: 'numeric'},
+    hostname: {label: 'Hostname regex', placeholder: '^api[0-9]+\\.example\\.test$', list: 'route-hostname-options', hint: 'Enter a regex or choose a known hostname for an exact match.', mode: 'text'},
+    service_code: {label: 'Service code regex', placeholder: '^WEB[0-9]+$', list: 'route-service-options', hint: 'Enter a regex or choose an existing service code for an exact match.', mode: 'text'},
+    cidr: {label: 'IP network (CIDR)', placeholder: '10.20.0.0/16', list: 'route-cidr-options', hint: 'Enter a network range; known IPs can be selected as single-address networks.', mode: 'text'},
+    team: {label: 'Currently assigned team', hint: 'Only findings currently assigned to this team are included.'}
+  };
+  const escapeRegex = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const update = () => {
+    const selected = settings[scope.value];
+    const isTeam = scope.value === 'team';
+    label.textContent = selected.label;
+    label.setAttribute('for', isTeam ? 'route-eval-team' : 'route-eval-pattern');
+    hint.textContent = selected.hint;
+    target.hidden = isTeam;
+    target.disabled = isTeam;
+    target.required = !isTeam;
+    team.hidden = !isTeam;
+    team.disabled = !isTeam;
+    team.required = isTeam;
+    target.value = '';
+    team.value = '';
+    if (!isTeam) {
+      target.placeholder = selected.placeholder;
+      target.setAttribute('list', selected.list);
+      target.setAttribute('inputmode', selected.mode);
+    }
+  };
+  scope.addEventListener('change', update);
+  document.getElementById('route-eval-form').addEventListener('submit', () => {
+    const known = scope.value === 'hostname' ? hostnames : scope.value === 'service_code' ? serviceCodes : null;
+    // Choosing a known literal cannot accidentally become a broad regex match.
+    if (known && known.has(target.value)) target.value = '^' + escapeRegex(target.value) + '$';
+  });
+  update();
+})();
+</script>
+{% endblock %}

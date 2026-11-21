@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}<a href="/admin/users">ACCOUNTS</a><span class="breadcrumb-divider">/</span>SAMPLE DATA{% endblock %}
+{% block content %}
+<div class="heading"><div><div class="eyebrow">WORKSPACE SETUP</div><h1>Sample assessment campaign</h1><p>Explore Arbitrator with fictional assessments, findings and governance decisions.</p></div><a class="button" href="/imports">Import center</a></div>
+{% if notice %}<div class="alert success" role="status">{{notice}}</div>{% endif %}
+{% if error %}<div class="alert error" role="alert">{{error}}</div>{% endif %}
+<div class="two-col balanced-grid">
+<section class="panel"><h2>Atlas Labs demonstration</h2>
+<p class="helper">A fictional multi-source campaign, including a baseline, retest and independent revalidation across two engagements.</p>
+<div class="demo-stat-grid"><div><strong>6</strong><span>Assessments</span></div><div><strong>14</strong><span>Assets</span></div><div><strong>27</strong><span>Findings</span></div><div><strong>39</strong><span>Observations</span></div></div>
+<p class="helper">Sample formats: generic penetration-test CSV, Nessus CSV, Nuclei JSONL and PlexTrac JSON. The campaign also includes remediation rules, governance decisions and work items.</p>
+{% if status.can_load %}
+<form method="post" action="/admin/sample-data" class="demo-load-form"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><button class="button primary" type="submit">Load sample campaign</button></form>
+{% elif status.existing_demo %}
+<div class="info-box">The Atlas Labs campaign is already present. No additional sample records were created. To reset, use a separate disposable SQLite workspace and remove its database file only after stopping the server.</div><a class="button" href="/findings">Explore findings</a>
+{% else %}
+<div class="info-box">This workspace contains assessment data. To avoid mixing fictional findings with existing data, loading is unavailable. No records have been changed.</div>
+{% endif %}
+</section>
+<section class="panel"><h2>Demo workflow</h2><div class="help-list"><div><strong>Investigate findings</strong><span>Filter by severity, review assets and evidence across assessments.</span></div><div><strong>Assign responsibility</strong><span>Test deterministic global rules and manually assign a remediation team.</span></div><div><strong>Review risk decisions</strong><span>See recorded decisions and work through a queued governance item.</span></div><div><strong>Reproduce results</strong><span>Compare repeat observations, imported formats and audit history.</span></div></div><p class="helper">All sample hosts and organizations are fictional. Sample data should not be used as real vulnerability evidence.</p></section>
+</div>
+{% endblock %}

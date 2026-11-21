@@ -1,0 +1,11 @@
+{% from '_sort.html' import sortable %}{% extends "base.html" %}{% block breadcrumb %}ASSETS{% endblock %}
+{% block content %}<div class="heading"><div><div class="eyebrow">GLOBAL ASSET INVENTORY</div><h1>Asset inventory</h1><p>Manage asset identities and network exposure.</p></div><a class="button" href="/ownership/routing">Global assignment rules</a></div>
+{% if error %}<div class="alert error">{{error}}</div>{% endif %}{% if notice %}<div class="alert success">{{notice}}</div>{% endif %}
+<section class="panel filters"><form method="get" action="/assets" class="filter-grid asset-filter-grid"><div><label>Search assets</label><input name="q" value="{{selected.q}}" placeholder="IP, hostname, service code, or CMDB ID"></div>
+<div><label>Network classification</label><select name="exposure"><option value="">All classifications</option>{% for v in ['Internal','External','Review required'] %}<option value="{{v}}" {% if selected.exposure==v %}selected{% endif %}>{{v}}</option>{% endfor %}</select></div>
+
+<button class="button primary">Apply filters</button><a class="button" href="/assets">Clear</a></form></section>
+<section class="panel data-panel"><div class="panel-top"><h2>Asset register · {{paging.total}} global identities</h2></div>
+<table><thead><tr><th>{{ sortable('INVENTORY ID','id',sorting,link) }}</th><th>{{ sortable('IDENTIFIER','identifier',sorting,link) }}</th><th>{{ sortable('DISPLAY NAME','name',sorting,link) }}</th><th>{{ sortable('SERVICE CODE','service',sorting,link) }}</th><th>{{ sortable('EXPOSURE','exposure',sorting,link) }}</th><th></th></tr></thead><tbody>
+{% for a in assets %}<tr><td class="mono">#{{a.id}}</td><td class="mono">{{a.identity_key}}</td><td><a class="table-primary" href="/assets/{{a.id}}">{{a.display_name}}</a></td><td>{{a.service_code or '—'}}</td><td><span class="state-tag">{{a.exposure}}</span></td><td><a class="text-link" href="/assets/{{a.id}}">Edit →</a></td></tr>
+{% else %}<tr><td colspan="6" class="empty-cell">No assets found.</td></tr>{% endfor %}</tbody></table>{% include '_pager.html' %}</section>{% endblock %}

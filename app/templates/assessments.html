@@ -1,0 +1,23 @@
+{% from '_sort.html' import sortable %}{% extends "base.html" %}{% block breadcrumb %}ASSESSMENTS{% endblock %}
+{% block content %}<div class="heading"><div><div class="eyebrow">OFFENSIVE SECURITY OPERATIONS</div><h1>Assessments</h1><p>Track assessments and authorized scope.</p></div><a class="button primary" href="#new-assessment">+ New assessment</a></div>
+{% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+<section class="panel data-panel"><div class="panel-top"><div><h2>Assessment register</h2><p>{{ paging.total }} assessments · newest first</p></div></div><table><thead><tr><th>{{ sortable('ASSESSMENT','name',sorting,link) }}</th><th>{{ sortable('ENGAGEMENT','engagement',sorting,link) }}</th><th>{{ sortable('TYPE','type',sorting,link) }}</th><th>{{ sortable('START','start',sorting,link) }}</th><th>{{ sortable('END','end',sorting,link) }}</th><th>{{ sortable('STATUS','status',sorting,link) }}</th><th></th></tr></thead><tbody>
+{% for a in assessments %}<tr><td><a class="table-primary" href="/assessments/{{ a.id }}">{{ a.name }}</a></td><td>{{ a.engagement.name }}</td><td>{{ a.assessment_type }}</td><td>{{ a.started_at.strftime('%Y-%m-%d') }}</td><td>{{ a.ended_at.strftime('%Y-%m-%d') if a.ended_at else 'Open' }}</td><td>{{ a.status }}</td><td><a class="text-link" href="/assessments/{{ a.id }}">Open →</a></td></tr>
+{% else %}<tr><td colspan="7" class="empty-cell">No assessments created.</td></tr>{% endfor %}
+</tbody></table>{% include '_pager.html' %}</section>
+<div class="two-col balanced-grid below-register" id="new-assessment"><section class="panel"><div class="panel-top"><div><h2>Create an assessment</h2><p>An existing engagement name reuses its existing asset/finding namespace</p></div></div>
+<form method="post" action="/assessments" class="upload-form"><input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}"><label for="engagement_name">Engagement name</label><input id="engagement_name" name="engagement_name" maxlength="180" placeholder="Example: Atlas Labs — Q4 Research" required>
+<label for="assessment_name">Assessment name</label><input id="assessment_name" name="assessment_name" maxlength="180" placeholder="November Web and API penetration test" required>
+<label for="client">Client / organization</label><input id="client" name="client" value="Synthetic organization" maxlength="180">
+<label for="assessment_type">Assessment testing perspective</label><select name="assessment_type" id="assessment_type" required><option>Internal</option><option>External</option><option selected>Hybrid</option></select><p class="helper">Testing perspective; asset exposure is managed separately.</p>
+<div class="form-pair"><div><label for="started_on">Start date</label><input id="started_on" name="started_on" type="date"></div><div><label for="ended_on">End date (optional)</label><input id="ended_on" name="ended_on" type="date"></div></div>
+<label for="scope">Authorized assessment scope</label><textarea id="scope" name="scope" rows="3" placeholder="e.g., api01.atlas.example.test, 192.0.2.0/24. Define exclusions and permissions."></textarea>
+<button class="button primary">Create assessment</button></form></section>
+<section class="panel"><div class="panel-top"><div><h2>How these records relate</h2></div></div><div class="help-list">
+<div><strong>Engagement</strong><span>Client/project namespace. Two assessments of the same engagement can share a tracked finding.</span></div>
+<div><strong>Assessment</strong><span>A dated and scoped testing activity, such as a web test or infrastructure retest.</span></div>
+<div><strong>Finding</strong><span>A tracked security issue on a particular asset, which can be reobserved over time.</span></div>
+<div><strong>Observation</strong><span>Recorded evidence of a finding from one import batch and one assessment.</span></div>
+<div><strong>Import batch</strong><span>One imported CSV or JSON/JSONL file, preserving its source and provenance.</span></div>
+</div></section></div>
+{% endblock %}

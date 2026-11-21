@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}<a href="/admin/users">ACCOUNTS</a><span class="breadcrumb-divider">/</span>NEW ACCOUNT{% endblock %}
+{% block content %}
+<div class="heading"><div><div class="eyebrow">IDENTITY AND ACCESS</div><h1>Create account</h1><p>Register a user and grant explicitly selected access roles.</p></div><div class="heading-actions"><a class="button" href="/admin/users">Back to accounts</a></div></div>
+<section class="panel admin-account-form"><h2>Account details</h2>
+<form method="post" action="/admin/users" class="upload-form admin-form-grid"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}">
+<div class="form-unit"><label for="user-name">Username</label><input id="user-name" name="username" maxlength="80" required autocomplete="off" placeholder="e.g. analyst01"></div>
+<div class="form-unit"><label for="user-display">Display name</label><input id="user-display" name="name" maxlength="160" required placeholder="e.g. Security Analyst"></div>
+<div class="form-unit"><label for="user-email">Email address</label><input id="user-email" type="email" name="email" maxlength="254" required autocomplete="off" placeholder="analyst@example.test"></div>
+<div class="form-unit"><label for="user-pass">Initial password (12–128 characters)</label><input id="user-pass" type="password" name="password" minlength="12" maxlength="128" required autocomplete="new-password"></div>
+<div class="span-full"><h3 class="form-section-title">Access roles</h3><p class="helper">Select the permissions this user needs. An account without roles cannot access protected workspaces.</p><div class="stakeholder-options role-choices">{% for role in roles %}<label><input type="checkbox" name="role_ids" value="{{role.id}}">{{role.name}}</label>{% endfor %}</div></div>
+<div class="span-full"><div class="form-footer-actions"><a class="button" href="/admin/users">Cancel</a><button type="submit" class="button primary">Create account</button></div></div>
+</form></section>
+{% endblock %}

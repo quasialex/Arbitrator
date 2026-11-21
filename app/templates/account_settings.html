@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block breadcrumb %}SETTINGS{% endblock %}
+{% block content %}<div class="heading"><div><div class="eyebrow">PREFERENCES</div><h1>Appearance</h1><p>Choose a display theme for your account.</p></div></div>{% if notice %}<div class="alert success">{{notice}}</div>{% endif %}
+<section class="panel form-narrow"><form class="upload-form" method="post" action="/account/settings"><input type="hidden" name="csrf_token" value="{{request.state.csrf_token}}"><label>Color theme</label><select name="theme"><option value="light" {% if theme=='light' %}selected{% endif %}>Light</option><option value="dark" {% if theme=='dark' %}selected{% endif %}>Dark</option></select><button class="button primary">Save preferences</button></form></section>{% endblock %}
