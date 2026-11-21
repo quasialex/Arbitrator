@@ -32,7 +32,7 @@ jobs:
         run: python -m compileall -q app scripts
       - name: Upload evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: validation-${{ matrix.python-version }}
           if-no-files-found: warn
